@@ -1,11 +1,9 @@
-<!-- <input type="text" [(ngModel)]="name"> -->
-<!-- <p>{{name}}</p> -->
-<button class="btn btn-danger" [disabled]="!button_status">delete</button>
-<h1>hello Evans</h1>
-{{'muinde'}}
-
-<input type="text" class="form-control" (input)="somethingtyped($event)">
-{{my_text}}
-
-<input type="text" class="form-control" [(ngModel)]="email">
-{{email}}
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <app-recipes></app-recipes>
+            <app-shopping-list></app-shopping-list>
+        </div>
+    </div>
+</div>
