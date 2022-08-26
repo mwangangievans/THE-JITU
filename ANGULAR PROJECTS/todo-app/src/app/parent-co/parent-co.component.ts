@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ParentCoComponent implements OnInit {
 Counter : number= 5;
+Counter1 : number= 5;
+
   constructor() { }
 
   ngOnInit(): void {
@@ -18,5 +20,9 @@ Counter : number= 5;
 
   minusCounter(){
     this.Counter--
+  }
+
+  changeChildCounter(){
+    this.Counter1
   }
 }

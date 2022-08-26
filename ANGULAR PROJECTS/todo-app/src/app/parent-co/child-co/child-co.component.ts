@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child-co',
@@ -7,9 +7,20 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ChildCoComponent implements OnInit {
   @Input() count!: number;
+
+  @Output() parantCounter=new EventEmitter<number>();
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addCounter(){
+    this.count++
+    this.parantCounter.emit(this.count);
+  }
+  minusCounter(){
+  this.count--;
+  this.parantCounter.emit(this.count)
   }
 
 }

@@ -1,3 +1,19 @@
+<p>data from the parent</p>
 <div class="counter" >
     <p >{{count}}</p>
 </div>
+<hr>
+<hr>
+<div class="container">
+    <h1>child component.....passing data to the parent</h1>
+    <div class="row">
+        <div class="col-md-6">
+            <button class="btn btn-success" (click)="addCounter()">increment counter</button>
+        </div>
+        <div class="col-md-6">
+            <button class="btn btn-danger float-right"  (click)="minusCounter()">decrement counter</button>
+        </div>
+    </div>
+</div>
+<!-- <app-child-co [count]="Counter"></app-child-co> -->
+
