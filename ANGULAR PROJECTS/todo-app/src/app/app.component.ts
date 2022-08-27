@@ -1,4 +1,3 @@
-import { Target } from '@angular/compiler';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,9 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
- loadedFeatures= 'recipe';
-  constructor(){}
-  onNavigate(Feature:string){
-this.loadedFeatures = Feature;
+  loadedFeature = 'recipe';
+
+  onNavigate(feature: string) {
+    this.loadedFeature = feature;
   }
 }
