@@ -5,11 +5,13 @@ import {BasicHighlightDirective } from './basic-hightlight/basic-highlights.dire
 
 
 import { AppComponent } from './app.component';
+import { BetterHighlightDirective } from './better-highlight.directive';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BasicHighlightDirective
+    BasicHighlightDirective,
+    BetterHighlightDirective
   ],
   imports: [
     BrowserModule,
