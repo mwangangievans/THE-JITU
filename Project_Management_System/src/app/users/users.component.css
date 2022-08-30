@@ -1,0 +1,32 @@
+.box-8, .box-4{
+	width: 95%;
+	background-color: #272c4a;
+	height: 450px;
+    overflow-y: scroll;
+    
+	
+}
+.nav2{
+	display: none;
+}
+
+.box-8{
+	margin-left: 10px;
+}
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  
+}
+td, th {
+  text-align: left;
+  padding:15px;
+  color: #ddd;
+  border-bottom: 1px solid #81818140;
+}
+.content-box p{
+	margin: 0px;
+    font-size: 20px;
+    color: green;
+}
