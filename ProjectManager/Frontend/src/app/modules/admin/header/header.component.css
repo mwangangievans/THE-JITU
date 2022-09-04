@@ -1,0 +1,47 @@
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+  margin-left: 300px;
+  background-color: #272c4a;
+
+}
+.head{
+    padding:20px;
+    background-color: #272c4a;
+
+}
+.col-div-6{
+    width: 50%;
+    float: left;
+}
+.profile{
+    display: inline-block;
+    float: right;
+    width: 160px;
+}
+.pro-img{
+    float: left;
+    width: 50px;
+    margin-top: 5px;
+    border-radius: 50%;
+    background-color: #272c4a;
+
+}
+.profile p{
+    color: white;
+    font-weight: 500;
+    margin-left: 55px;
+    margin-top: 10px;
+    font-size: 13.5px;
+}
+.profile p span{
+    font-weight: 400;
+    font-size: 12px;
+    display: block;
+    color: #8e8b8b;
+}
+.nav2{
+display: none;
+}
+/* ==================================================== */
+

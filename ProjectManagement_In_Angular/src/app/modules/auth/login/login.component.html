@@ -1,0 +1,66 @@
+
+<body>
+	<div class="main">
+		<input type="checkbox" id="chk" aria-hidden="true">
+
+			<div class="signup">
+				<form #signupdata="ngForm"   (ngSubmit)="onSign(signupdata.value)">
+					<label for="chk" aria-hidden="true">Sign up</label>
+					<input type="text"
+          name="Username"
+          placeholder="User Name"
+           required
+           ngModel
+           #Username="ngModel"
+            >
+            <span *ngIf="Username.touched && Username.invalid"><p class="mail-vali">User Name is required</p></span>
+          <input type="email"
+          name="email"
+          placeholder="only jitu emails allowed"
+           required
+           email
+           ngModel
+           #email="ngModel"
+           >
+           <span *ngIf="email.touched && email.invalid"><p class="mail-vali">Enter valid  Email</p></span>
+
+           <input
+           type="password"
+           name="password"
+           placeholder="Password"
+           required
+           password
+           ngModel
+           #password="ngModel">
+           <span *ngIf="pass.touched && pass.invalid"><p class="mail-vali">password is required</p></span>
+           <button [disabled]="signupdata.invalid" [ngClass]="{disabled: signupdata.invalid}" >Register</button>
+          </form>
+			</div>
+
+			<div class="login">
+				<form #f="ngForm"   (ngSubmit)="onLogin(f.value)">
+					<label for="chk" aria-hidden="true">Login</label>
+					<input type="email"
+                     name="email"
+                     placeholder="Email"
+                      required
+                      email
+                      ngModel
+                      #email="ngModel"
+                      >
+                      <span *ngIf="email.touched && email.invalid"><p class="mail-vali">Enter valid  Email</p></span>
+                    <span></span>
+					<input
+                     type="password"
+                     name="password"
+                     placeholder="Password"
+                     required
+                     password
+                     ngModel
+                     #pass="ngModel">
+                     <span *ngIf="pass.touched && pass.invalid"><p class="mail-vali">password is required</p></span>
+					<button [disabled]="f.invalid" [ngClass]="{disabled: f.invalid}" >Login</button>
+				</form>
+			</div>
+	</div>
+</body>

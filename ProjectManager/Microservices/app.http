@@ -1,0 +1,7 @@
+GET http://localhost:4003
+Content-Type: application/json
+
+
+###
+GET http://localhost:4003/mail
+Content-Type: application/json
