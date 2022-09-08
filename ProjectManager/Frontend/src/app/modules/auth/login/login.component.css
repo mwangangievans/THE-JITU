@@ -65,7 +65,7 @@ button{
 	cursor: pointer;
 }
 button:hover{
-	background: #6d44b8;
+	background: #FFC580;
 }
 .login{
 	height: 460px;
@@ -75,7 +75,7 @@ button:hover{
 	transition: .8s ease-in-out;
 }
 .login label{
-	color: #573b8a;
+	color: black;
 	transform: scale(.6);
 }
 
