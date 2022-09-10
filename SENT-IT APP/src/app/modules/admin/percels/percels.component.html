@@ -1,0 +1,71 @@
+<div class="clearfix"></div>
+      <br />
+
+      <div class="col-div-3">
+        <div class="box">
+          <p>67<br /><span>New Parcels</span></p>
+          <!-- <i class="fa fa-users box-icon"></i> -->
+          <i class="fa fa-folder-open box-icon"></i>
+        </div>
+      </div>
+      <div class="col-div-3">
+        <div class="box">
+          <p>{{totalParcelCount}}<br /><span>Parcels</span></p>
+          <i class="fa fa-cube box-icon"></i>
+        </div>
+      </div>
+      <div class="col-div-3">
+        <div class="box">
+          <p>10000<br /><span>Revenue</span></p>
+          <i class="fa fa-usd box-icon"></i>
+        </div>
+      </div>
+      <div class="col-div-3">
+        <div class="box">
+          <p>78<br /><span>Orders</span></p>
+          <i class="fa fa-shopping-bag box-icon"></i>
+        </div>
+      </div>
+      <div class="clearfix"></div>
+      <br /><br />
+      <div class="col-div-12">
+        <div class="box-12">
+          <div class="content-box">
+
+                <div  class="input-elevated">
+                  <input  type="text" placeholder="Search Parcel" [(ngModel)]="filteredString">
+                  <button class="search-btn">Search</button>
+                </div>
+
+            <br />
+            <table>
+              <tr>
+                <th>Parcel No</th>
+                <th>Sender </th>
+                <th>Receiver </th>
+                <th>Origin</th>
+                <th>Destination</th>
+                <th>Time Dispatched</th>
+                <th>Parcel status</th>
+                <th>Weight</th>
+                <th>Charge</th>
+                <th>Description</th>
+                <th>Action</th>
+              </tr>
+              <tr *ngFor="let parcel of allParcels|filter:filteredString">
+                <td>{{parcel.parcel_no}}</td>
+                <td>{{parcel.sender_id}}</td>
+                <td>{{parcel.receiver_id}}</td>
+                <td>{{parcel.origin}}</td>
+                <td>{{parcel.destination}}</td>
+                <td>{{parcel.Dispatch_time}}</td>
+                <td>{{parcel.parcel_status}}</td>
+                <td>{{parcel.Weight}}</td>
+                <td>{{parcel.Charge}}</td>
+                <td>{{parcel.parcel_description}}</td>
+                <td><p><button  class="seeMore" (click)="viewDetails(parcel.parcel_no)">See More</button></p></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>

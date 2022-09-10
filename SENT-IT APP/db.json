@@ -1,0 +1,157 @@
+{
+  "Auth": [],
+  "Parcels": [
+    {
+      "parcel_no": 6802728723,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kitale",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-06",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "parcel_description": "pppppppp",
+      "id": 1
+    },
+    {
+      "parcel_no": 402728756,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-29",
+      "parcel_status": "dispatched",
+      "Weight": "2358",
+      "Charge": "23",
+      "parcel_description": "yyyy",
+      "id": 2
+    },
+    {
+      "parcel_no": 4027287967,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kisumu",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-14",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "pppp",
+      "id": 3
+    },
+    {
+      "parcel_no": 402728756,
+      "sender_id": "Alice",
+      "receiver_id": "Alice",
+      "origin": "Origin",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-23",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "Charge": "2358",
+      "parcel_description": "rrrrrrrrrr",
+      "id": 4
+    },
+    {
+      "parcel_no": 402728759,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kisumu",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-22",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "pppppd",
+      "id": 5
+    },
+    {
+      "parcel_no": 402728723,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Nairobi",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-29",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "34",
+      "parcel_description": "jjjjjjjjjjj",
+      "id": 6
+    },
+    {
+      "parcel_no": 356623077,
+      "sender_id": "Tom",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-06",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "Charge": "675",
+      "parcel_description": "documents",
+      "id": 7
+    },
+    {
+      "parcel_no": 891873768,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Nairobi",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-10-01",
+      "parcel_status": "delivered",
+      "Weight": "2358",
+      "Charge": "2358",
+      "parcel_description": "fragile",
+      "id": 8
+    },
+    {
+      "parcel_no": 704110041,
+      "sender_id": "Tom",
+      "receiver_id": "Alice",
+      "origin": "Kitale",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-08-29",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "hhhhh",
+      "id": 9
+    },
+    {
+      "parcel_no": 192567051,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Kisumu",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-08-31",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "kisumu",
+      "id": 10
+    },
+    {
+      "parcel_no": 923955575,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kitale",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-21",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "daiel",
+      "id": 11
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

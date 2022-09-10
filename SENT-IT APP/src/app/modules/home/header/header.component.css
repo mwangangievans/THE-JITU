@@ -1,0 +1,46 @@
+.example-spacer {
+  flex: 1 1 auto;
+}
+p {
+  color: black;
+  opacity: .8;
+  font-size: medium;
+}.tabs :hover{
+  cursor: pointer;
+  color: #cb562e;
+}
+html
+{
+  scroll-behavior: smooth;
+}
+
+.logo {
+  float: left;
+  /* height: 100%; */
+	width: 100px;
+	margin-top: 5px;
+  outline-style: none;
+  border: transparent;
+  outline: transparent;
+}
+.tabs {
+display: flex;
+align-items: center;
+justify-content: space-between;
+gap: 1rem;
+}
+.link-deco {
+  text-decoration: none;
+}
+.link-deco span {
+  text-decoration: none;
+}
+.pro-img
+{
+  height: 100%;
+	width: 30px;
+	margin-top: 5px;
+}
+mat-toolbar{
+  background-color: white;
+}

@@ -1,0 +1,139 @@
+.hero {
+
+  height: 100vh;
+  background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)) ,url(../../../../assets/images/hero1.png);
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+
+}
+.features{
+  padding: 30px 0;
+}
+.feature-img
+{
+    width: 100%;
+    transition: 1s;
+}
+.feature-img:hover
+{
+    transform  : scale(1.1);
+}
+.par{
+  color: #fff;
+}
+.hands
+{
+  color: red;
+  width: 60px;
+}
+
+.who_we_are {
+
+  height: 100vh;
+  background-image:url(../../../../assets/images/back.png);
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.gallery
+{
+    padding: 100px 0;
+    /* background: #efefef; */
+}
+.gallery h1
+{
+ color: black;
+}
+.gallery-box img
+{
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+.gallery-box img:hover
+{
+    transform  : scale(1.1);
+}
+.gallery-box h4
+{
+  display: block;
+    color:black;
+    font-weight: 600;
+    font-size: 20px;
+    top: 50%;
+}
+.gallery-box p
+{
+  color: black;
+}
+.gallery-box
+{
+ position: relative;
+ margin-bottom: 30px;
+}
+
+.our-vision{
+    text-align: center;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 100, 0.2);
+    padding-bottom: 50px;
+}
+.our-vision p
+{
+    padding: 50px 10px 10px 10px;
+    color: black;
+}
+#Mission
+{
+  background-image:url(../../../../assets/images/software_icon_1.png);
+}
+#vision
+{
+  background-image:url(../../../../assets/images/software_icon_4.png);
+
+}
+.banner
+{
+    background-image:url(../../../../assets/images/hero1.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 1rem;
+}.banner-highlights
+{
+    padding:70px 0;
+    height: 60vh;
+     /* color: #cb562e; */
+    /* background: rgba(203, 86, 0.6); */
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    color: #fff;
+}
+.booking-btn
+{
+    width: 120px;
+    padding: 8px 0;
+    outline: none !important;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    background: transparent;
+    color: #fff;
+    margin-top: 20px;
+}
+.line{
+border: solid 2px white;
+color: #fff;
+}
+.video
+{
+  background-color: black;
+}

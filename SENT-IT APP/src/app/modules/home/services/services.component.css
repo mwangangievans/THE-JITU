@@ -1,0 +1,77 @@
+.who_we_are {
+
+  height: 100vh;
+  background-image:url(../../../../assets/images/back.png);
+  background-size: cover;
+  background-position: center;
+  /* background-attachment: fixed; */
+  padding-top: 20px;
+  text-align: center;
+  color: #fff;
+
+}
+
+.gallery
+{
+    padding: 100px 0;
+}
+.service
+{
+display: flex;
+align-items: center;
+justify-content: space-between;
+}
+.par
+{
+  cursor: pointer;
+  color: #F76637;
+}
+.service-icons
+{
+  border: solid 2px black;
+  border-radius: 50%;
+  background-color: #F76637;
+}
+.service-icons img {
+  width: 40px;
+}
+.service-icons :hover
+{
+  background-color: #fff;
+}
+.picha{
+width: 40px;
+border: solid 3px #F76637;
+border-radius: 50%;
+}
+.caption
+{
+  color: black;
+}
+.caption:hover
+{
+  color: #F76637;
+}
+.card-body
+{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card
+{
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+.col-md-4
+{
+  margin-bottom: 1rem;
+}
+.par2
+{
+  color: black;
+  margin-top: 2rem;
+}
+.line{
+  height: 4px;
+  color: #F76637;
+}
