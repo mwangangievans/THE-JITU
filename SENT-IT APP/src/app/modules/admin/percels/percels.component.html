@@ -45,25 +45,19 @@
                 <th>Receiver </th>
                 <th>Origin</th>
                 <th>Destination</th>
-                <th>Time Dispatched</th>
                 <th>Parcel status</th>
                 <th>Weight</th>
-                <th>Charge</th>
-                <th>Description</th>
                 <th>Action</th>
               </tr>
               <tr *ngFor="let parcel of allParcels|filter:filteredString">
-                <td>{{parcel.parcel_no}}</td>
+                <td><a  (click)="viewDetails(parcel.id)">{{parcel.parcel_no}}</a></td>
                 <td>{{parcel.sender_id}}</td>
                 <td>{{parcel.receiver_id}}</td>
                 <td>{{parcel.origin}}</td>
                 <td>{{parcel.destination}}</td>
-                <td>{{parcel.Dispatch_time}}</td>
                 <td>{{parcel.parcel_status}}</td>
                 <td>{{parcel.Weight}}</td>
-                <td>{{parcel.Charge}}</td>
-                <td>{{parcel.parcel_description}}</td>
-                <td><p><button  class="seeMore" (click)="viewDetails(parcel.parcel_no)">See More</button></p></td>
+                <td><p><button  class="seeMore" (click)="viewDetails(parcel.id)">See More</button></p></td>
               </tr>
             </table>
           </div>

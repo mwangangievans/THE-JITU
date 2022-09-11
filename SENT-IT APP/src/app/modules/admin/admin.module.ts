@@ -15,6 +15,7 @@ import { ViewDetailDialogComponent } from './view-detail-dialog/view-detail-dial
 import {MatDialogModule} from '@angular/material/dialog';
 import { filter } from 'rxjs';
 import { FilterPipe } from './filter.pipe';
+import { UpdateParcelComponent } from './update-parcel/update-parcel.component';
 // import { FilterPipe } from 'src/app/pipes/filter.pipe';
 // import { AppModule } from 'src/app/app.module';
 
@@ -33,6 +34,7 @@ import { FilterPipe } from './filter.pipe';
         AddParcelComponent,
         ViewDetailDialogComponent,
         FilterPipe,
+        UpdateParcelComponent,
   ],
   imports: [
     CommonModule,

@@ -28,6 +28,7 @@ export interface parcel_interface {
   Weight:string
   Charge:string
   parcel_description:string
+  id:number
 }
 export interface detailsDialog {
   animal: string;

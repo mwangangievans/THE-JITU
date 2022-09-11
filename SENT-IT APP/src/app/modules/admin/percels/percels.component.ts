@@ -34,8 +34,7 @@ export class PercelsComponent implements OnInit {
     })
   }
   viewDetails(parcelNo:number): void {
-    // this.parcel_service.showParcelDetails(parcelNo)
-      this.parcel_service.redirect('admin/See-More/'+parcelNo)
 
+      this.parcel_service.redirect('admin/See-More/'+parcelNo)
   }
 }

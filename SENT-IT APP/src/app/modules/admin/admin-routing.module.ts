@@ -18,10 +18,6 @@ const routes: Routes = [
   {path:'New-parcel',component:AddParcelComponent},
   {path:'See-More/:id',component:ViewDetailDialogComponent},
 
-
-
-
-
   ]
   }
 

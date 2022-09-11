@@ -1,5 +1,23 @@
 {
   "Auth": [],
+  "Users": [
+    {
+      "role": "user",
+      "username": "ken maina ",
+      "email": "ken@gmail.com",
+      "number": "0798288410",
+      "password": "12345",
+      "id": 2
+    },
+    {
+      "role": "admin",
+      "username": "Felix Moturi",
+      "email": "moturifelix@gmail.com",
+      "number": "0713025513",
+      "password": "12345678",
+      "id": 3
+    }
+  ],
   "Parcels": [
     {
       "parcel_no": 6802728723,
@@ -10,6 +28,7 @@
       "Dispatch_time": "2022-09-06",
       "parcel_status": "dispatched",
       "Weight": "34",
+      "Charge": "2358",
       "parcel_description": "pppppppp",
       "id": 1
     },
@@ -43,7 +62,7 @@
       "parcel_no": 402728756,
       "sender_id": "Alice",
       "receiver_id": "Alice",
-      "origin": "Origin",
+      "origin": "Mandela",
       "destination": "Kitale",
       "Dispatch_time": "2022-09-23",
       "parcel_status": "dispatched",

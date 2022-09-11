@@ -19,12 +19,14 @@ export class ParcelService {
   getAllParcels():Observable<parcel_interface[]>{
     return this.http.get<parcel_interface[]>('http://localhost:3000/Parcels')
   }
+
+  getOneParcels(id:number):Observable<parcel_interface>{
+    return this.http.get<parcel_interface>('http://localhost:3000/Parcels/'+id)
+  }
   redirect(url:string){
     this.router.navigate([url]);
   }
 
-  showParcelDetails(id:number){
-    return id;
-  }
+
 
 }

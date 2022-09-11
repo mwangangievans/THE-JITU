@@ -234,6 +234,7 @@ td, th {
   background-color: #cb562e;
   border-radius: 5px;
   color: #ddd;
+  font-size: small;
 }
 /* ================================= */
 .constrain{

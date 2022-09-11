@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,  } from '@angular/router';
+import { Observable } from 'rxjs';
 import { parcel_interface } from 'src/app/interface/interface';
 import { ParcelService } from 'src/app/services/parcel.service';
 
@@ -12,19 +13,22 @@ import { ParcelService } from 'src/app/services/parcel.service';
 
 export class ViewDetailDialogComponent implements OnInit {
    id:number = 0 ;
-   allParcels: parcel_interface [] = [];
+   isUpdating:boolean=false
+   allParcels$!: Observable<parcel_interface>
   constructor(private route:ActivatedRoute ,private parcel_service:ParcelService ) { }
 
   ngOnInit(): void {
-   const array1 = this.parcel_service.getAllParcels().subscribe(res=>{
-      //  res.filter(item=>{item.parcel_no===this.route.snapshot.params['id']})
-      res.filter(item=>{
-        console.log(item.parcel_no);
-      })
-   })
-
-   console.log(array1);
-  //  this.id = this.parcel_service.showParcelDetails()
+    this.id = this.route.snapshot.params['id']
+    console.log("parcel_no to details"+this.id);
+    this.parcelDetails()
   }
 
+  parcelDetails(){
+     this.allParcels$ = this.parcel_service.getOneParcels(+this.id)
+  }
+
+//  ===================================================update logic==========================
+Update(){
+this.isUpdating=true
+}
 }
