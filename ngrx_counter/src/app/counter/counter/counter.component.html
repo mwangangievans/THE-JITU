@@ -4,7 +4,11 @@
       <app-counter-output [counter]="counter"></app-counter-output>
     </div>
     <div class="my-3">
-      <app-counter-button></app-counter-button>
+      <app-counter-button
+      (decrement)="onDecrement()"
+       (increment)="onIncrement()"
+       (reset)="onReset()"
+       ></app-counter-button>
     </div>
   </div>
 </div>
