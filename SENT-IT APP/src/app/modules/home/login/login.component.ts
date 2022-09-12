@@ -16,6 +16,11 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+
+    console.log(this.auth.loginIn());
+
+
+
   }
   onLogin(loginData:userLoginInterface){
     this.auth.loginAuthentication(loginData).subscribe(res=>{

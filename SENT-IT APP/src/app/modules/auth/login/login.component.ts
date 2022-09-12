@@ -35,19 +35,13 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
-const user =this.loginDetails.find(item=>{
-  item.email === "evans@gmail.com";
- });
-
- console.log(user);
+    console.log(this.auth.loginIn());
   }
 
   register(){
 
   }
-  // login(loginData:userLoginInterface){
 
-  // }
   onLogin(loginData:userLoginInterface){
     this.auth.loginAuthentication(loginData).subscribe(res=>{
       localStorage.setItem("token",res.token)

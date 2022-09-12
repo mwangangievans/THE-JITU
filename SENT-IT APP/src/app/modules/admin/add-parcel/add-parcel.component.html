@@ -12,7 +12,7 @@
             <option value="Evans">Evans</option>
             <option value="Tom">Tom</option>
           </select>
-          <small class="name-error"></small>
+          <small class="name-error" *ngIf=""></small>
         </p>
         <p>
           <label for="">Receiver Name</label>
@@ -66,7 +66,7 @@
         <p >
           <label for="">Charge</label>
           <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
+          <small class="name-error" *ngIf=""></small>
         </p>
 
         <p class="full-width" >

@@ -14,6 +14,20 @@
       "email": "muindemwangangi2@gmail.com",
       "password": "12345678",
       "id": 2
+    },
+    {
+      "username": "asdasdss",
+      "phone": "0998288410",
+      "email": "ahmedsuleiman1245@gmail.com",
+      "password": "456632",
+      "id": 3
+    },
+    {
+      "username": "asdasdss",
+      "phone": "0998288410",
+      "email": "ahmedsuleiman1245@gmail.com",
+      "password": "456632",
+      "id": 4
     }
   ],
   "Parcels": [
@@ -172,6 +186,19 @@
       "Charge": "2358",
       "parcel_description": "parcel",
       "id": 12
+    },
+    {
+      "parcel_no": 372417917,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-12",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "document333",
+      "id": 13
     }
   ],
   "comments": [

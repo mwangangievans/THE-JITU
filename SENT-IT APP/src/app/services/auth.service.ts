@@ -3,6 +3,9 @@ import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
 import { loginResponce, registerResponse, role, userLogin, userLoginInterface, userRegister } from '../interface/interface';
 
+export interface token{
+  token:boolean
+}
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +14,9 @@ export class AuthService {
 
   constructor(private http: HttpClient) { }
 
+  loginIn(){
+    return !!localStorage.getItem('token') as boolean
+  }
   loginAuthentication(loginData:userLoginInterface):Observable<loginResponce>{
     this.checkUserRole()
     return this.http.post<loginResponce>('http://localhost:5000/user/login', loginData)
