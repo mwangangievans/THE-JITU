@@ -1,1 +1,61 @@
-<p>user works!</p>
+<!-- <table>
+  <tr>
+    <th>#</th>
+    <th>username </th>
+    <th>Phone </th>
+    <th>email</th>
+  </tr>
+  <tr *ngFor="let user of allUsers">
+    <td>{{user.id}}</td>
+    <td>{{user.username}}</td>
+    <td>{{user.phone}}</td>
+    <td>{{user.email}}</td>
+
+
+    <td><p><button  class="seeMore" (click)="viewDetails(user.id)">See More</button></p></td>
+  </tr>
+</table> -->
+
+<!-- ========================================= -->
+
+<div class="clearfix"></div>
+<br /><br />
+<div class="col-div-12">
+  <div class="box-12">
+    <div class="content-box">
+      <div class="input-elevated">
+        <input
+          type="text"
+          placeholder="Search Parcel"
+          [(ngModel)]="filteredString"
+        />
+        <button class="search-btn">Search</button>
+      </div>
+
+      <br />
+      <table>
+        <tr>
+          <th>#</th>
+          <th>username</th>
+          <th>Phone</th>
+          <th>email</th>
+          <th>Action</th>
+        </tr>
+        <tr *ngFor="let user of allUsers">
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.phone }}</td>
+          <td>{{ user.email }}</td>
+
+          <td>
+            <p>
+              <button class="seeMore" (click)="viewDetails(user.id)">
+                See More
+              </button>
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>

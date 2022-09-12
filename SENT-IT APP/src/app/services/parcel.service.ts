@@ -9,7 +9,6 @@ import { parcelMessage, parcel_interface } from '../interface/interface';
 })
 export class ParcelService {
 
-
   constructor(private http: HttpClient,private router:Router,private route:ActivatedRoute) { }
   addParcel(parcelData:parcel_interface):Observable<parcelMessage>{
     console.log(parcelData);

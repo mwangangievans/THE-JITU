@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { userRegister } from 'src/app/interface/interface';
+import { AuthService } from 'src/app/services/auth.service';
 
 @Component({
   selector: 'app-user',
@@ -6,10 +8,21 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./user.component.css']
 })
 export class UserComponent implements OnInit {
+  allUsers: userRegister [] = [];
+  filteredString:string='';
 
-  constructor() { }
+
+  constructor(private user:AuthService) { }
 
   ngOnInit(): void {
-  }
+
+    this.user.getAllUsers().subscribe(res=>{
+      this.allUsers=res
+  });
+  console.log(this.allUsers);
+}
+viewDetails(id:number=0){
+
+}
 
 }

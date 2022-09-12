@@ -1,122 +1,77 @@
 <div class="contain">
   <div *ngIf="!isUpdating">
-
-  <div class="wrapper" *ngIf="allParcels$|async as parcels ">
-    <div class="form">
-      <h4 class="form-headline">PARCEL DETAILS</h4>
-      <div id="submit-form"   >
-        <p>
-          <label for="">Sender Name</label>
-          <label class="detail_item">{{parcels.sender_id}} </label>
-        </p>
-        <p>
-          <label for="">Receiver Name</label>
-        <label class="detail_item">{{parcels.receiver_id}} </label>
-        </p>
-        <p>
-          <label for="">Origin</label>
-          <label class="detail_item">{{parcels.origin}} </label>
-        </p>
-        <p>
-          <label for="">Destination</label>
-          <label class="detail_item">{{parcels.destination}} </label>
-        </p>
-        <p>
-          <label for="">Time Dispatched</label>
-          <label class="detail_item">{{parcels.Dispatch_time}}</label>
-        <p >
-          <label for="">Parcel status</label>
-          <label class="detail_item">{{parcels.parcel_status}} </label>
-        </p>
-
-        <p >
-          <label for="">Weight</label>
-          <label class="detail_item">{{parcels.Weight}} </label>
-        </p>
-
-        <p >
-          <label for="">Charge</label>
-          <label class="detail_item">{{parcels.Charge|currency}} </label>
-        </p>
-
-        <p class="full-width" >
-          <label for="">parcel Description</label>
-          <label class="detail_item">{{parcels.parcel_description}} </label>
-        </p>
-
-        <p class="full-width" >
-          <button  class="btn btn-primary" (click)="Update()">Update</button>
-          <button  class="btn btn-primary" >Delete</button>
-        </p>
-
-        <p class="full-width" >
+    <div class="wrapper" *ngIf="allParcels$ | async as parcels">
+      <div class="form">
+        <h4 class="form-headline">PARCEL DETAILS</h4>
+        <div id="submit-form">
+          <p>
+            <label for="">Sender Name</label>
+            <label class="detail_item">{{ parcels.sender_id }} </label>
           </p>
+          <p>
+            <label for="">Receiver Name</label>
+            <label class="detail_item">{{ parcels.receiver_id }} </label>
+          </p>
+          <p>
+            <label for="">Origin</label>
+            <label class="detail_item">{{ parcels.origin }} </label>
+          </p>
+          <p>
+            <label for="">Destination</label>
+            <label class="detail_item">{{ parcels.destination }} </label>
+          </p>
+          <p>
+            <label for="">Time Dispatched</label>
+            <label class="detail_item">{{ parcels.Dispatch_time }}</label>
+          </p>
+
+          <p>
+            <label for="">Parcel status</label>
+            <label class="detail_item">{{ parcels.parcel_status }} </label>
+          </p>
+
+          <p>
+            <label for="">Weight</label>
+            <label class="detail_item">{{ parcels.Weight }} </label>
+          </p>
+
+          <p>
+            <label for="">Charge</label>
+            <label class="detail_item">{{ parcels.Charge | currency }} </label>
+          </p>
+
+          <p class="full-width">
+            <label for="">parcel Description</label>
+            <label class="detail_item">{{ parcels.parcel_description }} </label>
+          </p>
+
+          <p class="full-width">
+            <button class="btn btn-primary" (click)="Update(parcels.id)">Update</button>
+            <button class="btn btn-primary">Delete</button>
+          </p>
+
+          <p class="full-width"></p>
+        </div>
+      </div>
+
+      <div class="contacts contact-wrapper">
+        <mat-card class="example-card">
+          <ul>
+            <li>
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.21189417865!2d36.917681393708584!3d-0.4398688873777691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285dfed09e0ebf%3A0x829716f702f65e9e!2sNyeri!5e0!3m2!1sen!2ske!4v1662469633681!5m2!1sen!2ske"
+                width="500"
+                height="400"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </li>
+          </ul>
+        </mat-card>
       </div>
     </div>
-
-    <div class="contacts contact-wrapper">
-      <mat-card class="example-card">
-      <ul>
-        <li>
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.21189417865!2d36.917681393708584!3d-0.4398688873777691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285dfed09e0ebf%3A0x829716f702f65e9e!2sNyeri!5e0!3m2!1sen!2ske!4v1662469633681!5m2!1sen!2ske" width="500" height="400" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </li>
-      </ul>
-    </mat-card>
-    </div>
   </div>
   </div>
-
-  <div *ngIf="isUpdating">
-  <div class="wrapper" *ngIf="allParcels$|async as parcels ">
-    <div class="form">
-      <h4 class="form-headline">GREATE NEW PARCEL</h4>
-      <form id="submit-form">
-        <p>
-          <label for="">Time Dispatched</label>
-          <input id="name" class="form-input" type="text" value="{{parcels.Dispatch_time}}" placeholder="Dispatch time*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Weight</label> <br>
-          <input id="name" class="form-input" type="text" formControlName="Weight" placeholder="Weight*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-        <p >
-          <label for="">Charge</label>
-          <input id="name" class="form-input" type="text" formControlName="Charge" placeholder="Charge*">
-          <small class="name-error"></small>
-        </p>
-
-        <p class="full-width" >
-            <button  class="btn btn-primary" >Save</button></p>
-      </form>
-    </div>
-  </div>
-</div>
-</div>
 

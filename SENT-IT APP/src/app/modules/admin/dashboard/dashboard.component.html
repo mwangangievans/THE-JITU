@@ -9,7 +9,7 @@
       </div>
       <div class="col-div-3">
         <div class="box">
-          <p>88<br /><span>Parcels</span></p>
+          <p>{{totalParcelCount}}<br /><span>Parcels</span></p>
           <i class="fa fa-cube box-icon"></i>
         </div>
       </div>
@@ -30,21 +30,33 @@
       <div class="col-div-12">
         <div class="box-12">
           <div class="content-box">
-            <p>Parcels <span>Sell All</span></p>
+
+                <div  class="input-elevated">
+                  <input  type="text" placeholder="Search Parcel" [(ngModel)]="filteredString">
+                  <button class="search-btn">Search</button>
+                </div>
+
             <br />
             <table>
               <tr>
-                <th>Sender Name</th>
-                <th>Receiver Name</th>
+                <th>Parcel No</th>
+                <th>Sender </th>
+                <th>Receiver </th>
                 <th>Origin</th>
                 <th>Destination</th>
-                <th>Time Dispatched</th>
                 <th>Parcel status</th>
                 <th>Weight</th>
-                <th>Description</th>
+                <th>Action</th>
               </tr>
-              <tr>
-                <td>Alfreds Futterkiste</td>
+              <tr *ngFor="let parcel of allParcels|filter:filteredString">
+                <td><a  (click)="viewDetails(parcel.id)">{{parcel.parcel_no}}</a></td>
+                <td>{{parcel.sender_id}}</td>
+                <td>{{parcel.receiver_id}}</td>
+                <td>{{parcel.origin}}</td>
+                <td>{{parcel.destination}}</td>
+                <td>{{parcel.parcel_status}}</td>
+                <td>{{parcel.Weight}}</td>
+                <td><p><button  class="seeMore" (click)="viewDetails(parcel.id)">See More</button></p></td>
               </tr>
             </table>
           </div>

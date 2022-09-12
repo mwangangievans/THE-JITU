@@ -1,7 +1,8 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { loginResponce, role, userLoginInterface } from '../interface/interface';
+import { loginResponce, registerResponse, role, userLogin, userLoginInterface, userRegister } from '../interface/interface';
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,11 +10,20 @@ import { loginResponce, role, userLoginInterface } from '../interface/interface'
 export class AuthService {
 
   constructor(private http: HttpClient) { }
+
   loginAuthentication(loginData:userLoginInterface):Observable<loginResponce>{
     this.checkUserRole()
     return this.http.post<loginResponce>('http://localhost:5000/user/login', loginData)
   }
 
+  registerUser(registerData:userRegister):Observable<registerResponse>{
+    // this.checkUserRole()
+    return this.http.post<registerResponse>('http://localhost:3000/Users', registerData)
+  }
+
+  getAllUsers():Observable<userRegister[]>{
+    return this.http.get<userRegister[]>('http://localhost:3000/Users')
+  }
   checkUserRole(){
     let token = localStorage.getItem('token') as string
     return this.http.get<role>('http://localhost:5000/user/check-user',{

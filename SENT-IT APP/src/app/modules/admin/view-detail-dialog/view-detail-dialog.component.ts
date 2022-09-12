@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute,  } from '@angular/router';
+import { ActivatedRoute, Router,  } from '@angular/router';
 import { Observable } from 'rxjs';
 import { parcel_interface } from 'src/app/interface/interface';
 import { ParcelService } from 'src/app/services/parcel.service';
+import { FormBuilder,FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-view-detail-dialog',
@@ -15,7 +17,7 @@ export class ViewDetailDialogComponent implements OnInit {
    id:number = 0 ;
    isUpdating:boolean=false
    allParcels$!: Observable<parcel_interface>
-  constructor(private route:ActivatedRoute ,private parcel_service:ParcelService ) { }
+  constructor(private router:Router ,private route:ActivatedRoute ,private parcel_service:ParcelService ) { }
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id']
@@ -28,7 +30,11 @@ export class ViewDetailDialogComponent implements OnInit {
   }
 
 //  ===================================================update logic==========================
-Update(){
-this.isUpdating=true
+Update(id:number){
+  console.log(id);
+  this.router.navigate(['admin/update-Parcel/'+id])
+
 }
+
+updateParcel(){}
 }

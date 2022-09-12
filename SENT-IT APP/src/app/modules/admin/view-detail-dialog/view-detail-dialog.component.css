@@ -121,7 +121,7 @@ ul {
 
 form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* grid-template-columns: 1fr 1fr; */
   grid-gap: 20px;
 }
 form label {
@@ -168,4 +168,11 @@ button:focus , .submit-btn:focus{
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+.update-style input{
+  height: 10px;
+}
+.container-update
+{
+  padding: 4rem;
 }

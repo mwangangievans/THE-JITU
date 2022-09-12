@@ -1,9 +1,11 @@
 
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { userLoginInterface } from 'src/app/interface/interface';
+import { userLogin, userLoginInterface } from 'src/app/interface/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { Router } from '@angular/router';
+
+
 
 @Component({
   selector: 'app-login',
@@ -12,11 +14,40 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   @ViewChild('form') form!:NgForm
+
+   loginDetails:userLogin []=[
+    {
+    email:"evans@gmail.com",
+    password:"12345",
+    role:"admin"
+  },
+  {
+    email:"user@gmail.com",
+    password:"12345",
+    role:"user"
+  }
+  ]
+
+
+  userLogindetails!:userLogin
+
   constructor( private auth:AuthService , private router:Router) {
    }
 
   ngOnInit(): void {
+const user =this.loginDetails.find(item=>{
+  item.email === "evans@gmail.com";
+ });
+
+ console.log(user);
   }
+
+  register(){
+
+  }
+  // login(loginData:userLoginInterface){
+
+  // }
   onLogin(loginData:userLoginInterface){
     this.auth.loginAuthentication(loginData).subscribe(res=>{
       localStorage.setItem("token",res.token)

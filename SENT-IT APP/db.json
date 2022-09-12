@@ -2,20 +2,11 @@
   "Auth": [],
   "Users": [
     {
-      "role": "user",
-      "username": "ken maina ",
-      "email": "ken@gmail.com",
-      "number": "0798288410",
+      "username": "admin",
+      "phone": "0998288410",
+      "email": "evans@gmail.com",
       "password": "12345",
-      "id": 2
-    },
-    {
-      "role": "admin",
-      "username": "Felix Moturi",
-      "email": "moturifelix@gmail.com",
-      "number": "0713025513",
-      "password": "12345678",
-      "id": 3
+      "id": 1
     }
   ],
   "Parcels": [

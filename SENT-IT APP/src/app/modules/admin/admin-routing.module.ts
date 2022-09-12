@@ -5,6 +5,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { HeaderComponent } from './header/header.component';
 import { PercelsComponent } from './percels/percels.component';
 import { RevenueComponent } from './revenue/revenue.component';
+import { UpdateParcelComponent } from './update-parcel/update-parcel.component';
 import { UserComponent } from './user/user.component';
 import { ViewDetailDialogComponent } from './view-detail-dialog/view-detail-dialog.component';
 
@@ -17,6 +18,8 @@ const routes: Routes = [
   {path:'Revenue',component:RevenueComponent},
   {path:'New-parcel',component:AddParcelComponent},
   {path:'See-More/:id',component:ViewDetailDialogComponent},
+  {path:'update-Parcel/:id',component:UpdateParcelComponent},
+
 
   ]
   }

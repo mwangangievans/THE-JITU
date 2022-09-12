@@ -3,6 +3,19 @@ export interface userLoginInterface {
   password:string;
 }
 
+export interface userRegister{
+  phone:string;
+  username:string;
+  email:string;
+  password:string;
+  id?:number
+
+}
+
+export interface registerResponse{
+  message:string
+}
+
 export interface loginResponce {
   message:string;
   token:string
@@ -30,7 +43,13 @@ export interface parcel_interface {
   parcel_description:string
   id:number
 }
-export interface detailsDialog {
+export interface detailsDialog  {
   animal: string;
   name: string;
+}
+
+export  interface  userLogin {
+  email:string
+  password:string
+  role?:string
 }
