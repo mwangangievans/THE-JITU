@@ -16,6 +16,7 @@ import { MainbodyComponent } from './mainbody/mainbody.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthModule } from '../auth/auth.module';
 import { LoginComponent } from './login/login.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 // Export this function
 export function playerFactory(): any {
@@ -29,6 +30,7 @@ export function playerFactory(): any {
     ServicesComponent,
     MainbodyComponent,
     LoginComponent,
+    PageNotFoundComponent,
   ],
   imports: [
     CommonModule,

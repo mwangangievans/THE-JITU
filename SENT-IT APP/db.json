@@ -7,6 +7,13 @@
       "email": "evans@gmail.com",
       "password": "12345",
       "id": 1
+    },
+    {
+      "username": "Evans",
+      "phone": "0998288410",
+      "email": "muindemwangangi2@gmail.com",
+      "password": "12345678",
+      "id": 2
     }
   ],
   "Parcels": [
@@ -152,6 +159,19 @@
       "Charge": "2358",
       "parcel_description": "daiel",
       "id": 11
+    },
+    {
+      "parcel_no": 282647922,
+      "sender_id": "Evans",
+      "receiver_id": "Alice",
+      "origin": "Nairobi",
+      "destination": "Kisumu",
+      "Dispatch_time": "2022-09-22",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "parcel",
+      "id": 12
     }
   ],
   "comments": [

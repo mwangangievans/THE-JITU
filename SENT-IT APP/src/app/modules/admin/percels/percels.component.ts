@@ -26,7 +26,11 @@ export class PercelsComponent implements OnInit {
     })
     this.totalParcels()
 
+
   }
+
+
+
   totalParcels(){
     this.parcel_service.getAllParcels().subscribe(res=>{
       const  parcelCount = res.length;
