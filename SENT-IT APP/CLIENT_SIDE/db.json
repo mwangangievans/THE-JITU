@@ -1,0 +1,365 @@
+{
+  "Auth": [],
+  "Users": [
+    {
+      "username": "admin",
+      "phone": "0998288410",
+      "email": "evans@gmail.com",
+      "password": "12345",
+      "id": 1
+    },
+    {
+      "username": "Evans",
+      "phone": "0998288410",
+      "email": "muindemwangangi2@gmail.com",
+      "password": "12345678",
+      "id": 2
+    },
+    {
+      "username": "asdasdss",
+      "phone": "0998288410",
+      "email": "ahmedsuleiman1245@gmail.com",
+      "password": "456632",
+      "id": 3
+    },
+    {
+      "username": "asdasdss",
+      "phone": "0998288410",
+      "email": "ahmedsuleiman1245@gmail.com",
+      "password": "456632",
+      "id": 4
+    }
+  ],
+  "Parcels": [
+    {
+      "parcel_no": 6802728723,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kitale",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-06",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "Charge": "2358",
+      "parcel_description": "pppppppp",
+      "id": 1
+    },
+    {
+      "parcel_no": 402728756,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-29",
+      "parcel_status": "dispatched",
+      "Weight": "2358",
+      "Charge": "23",
+      "parcel_description": "yyyy",
+      "id": 2
+    },
+    {
+      "parcel_no": 4027287967,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kisumu",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-14",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "pppp",
+      "id": 3
+    },
+    {
+      "parcel_no": 402728756,
+      "sender_id": "Alice",
+      "receiver_id": "Alice",
+      "origin": "Mandela",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-23",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "Charge": "2358",
+      "parcel_description": "rrrrrrrrrr",
+      "id": 4
+    },
+    {
+      "parcel_no": 402728759,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kisumu",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-22",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "pppppd",
+      "id": 5
+    },
+    {
+      "parcel_no": 402728723,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Nairobi",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-29",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "34",
+      "parcel_description": "jjjjjjjjjjj",
+      "id": 6
+    },
+    {
+      "parcel_no": 356623077,
+      "sender_id": "Tom",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-06",
+      "parcel_status": "dispatched",
+      "Weight": "34",
+      "Charge": "675",
+      "parcel_description": "documents",
+      "id": 7
+    },
+    {
+      "parcel_no": 891873768,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Nairobi",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-10-01",
+      "parcel_status": "delivered",
+      "Weight": "2358",
+      "Charge": "2358",
+      "parcel_description": "fragile",
+      "id": 8
+    },
+    {
+      "parcel_no": 704110041,
+      "sender_id": "Tom",
+      "receiver_id": "Alice",
+      "origin": "Kitale",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-08-29",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "hhhhh",
+      "id": 9
+    },
+    {
+      "parcel_no": 192567051,
+      "sender_id": "Evans",
+      "receiver_id": "Evans",
+      "origin": "Kisumu",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-08-31",
+      "parcel_status": "dispatched",
+      "Weight": "45",
+      "Charge": "2358",
+      "parcel_description": "kisumu",
+      "id": 10
+    },
+    {
+      "parcel_no": 923955575,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Kitale",
+      "destination": "Kitale",
+      "Dispatch_time": "2022-09-21",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "daiel",
+      "id": 11
+    },
+    {
+      "parcel_no": 282647922,
+      "sender_id": "Evans",
+      "receiver_id": "Alice",
+      "origin": "Nairobi",
+      "destination": "Kisumu",
+      "Dispatch_time": "2022-09-22",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "parcel",
+      "id": 12
+    },
+    {
+      "parcel_no": 372417917,
+      "sender_id": "Evans",
+      "receiver_id": "Tom",
+      "origin": "Nairobi",
+      "destination": "Nyeri",
+      "Dispatch_time": "2022-09-12",
+      "parcel_status": "dispatched",
+      "Weight": "23",
+      "Charge": "2358",
+      "parcel_description": "document333",
+      "id": 13
+    },
+    {
+      "parcel_no": 975417677,
+      "sender_id": "Evans",
+      "receiver_id": "Mercy",
+      "charge": "2358",
+      "parcel_weight": "34",
+      "Is_deleted": false,
+      "Is_dispatched": true,
+      "Is_sent_ondispatch": false,
+      "Is_delivered": false,
+      "Is_sent_ondelivery": false,
+      "destination_lat": 271856.40345945,
+      "destination_logi": 9953661.5868818,
+      "id": 14
+    },
+    {
+      "parcel_no": 781245706,
+      "Sender": "eeeeeeeeeeee",
+      "Receiver": "yyyyy",
+      "destination": "d",
+      "weight": "10kg",
+      "Cost": "2345",
+      "time_Dispatched": "5678",
+      "id": 15
+    },
+    {
+      "parcel_no": 604244390,
+      "Sender": "ssssssssssss",
+      "Receiver": "rrrrrrrrrrrrrrr",
+      "destination": "nyer",
+      "weight": "34",
+      "Cost": "4566",
+      "time_Dispatched": "78799",
+      "id": 16
+    },
+    {
+      "parcel_no": 252623979,
+      "Sender": "eeeeeeeeeeee",
+      "Receiver": "eeeeeeeeeeee",
+      "destination": null,
+      "weight": "eeeeeeeeeeee",
+      "Cost": "45578jj",
+      "time_Dispatched": "890",
+      "id": 17
+    },
+    {
+      "parcel_no": 540412686,
+      "Sender": "ssssssssssss",
+      "Receiver": "rrrrrrrrrrrrrr",
+      "destination": null,
+      "weight": "8900",
+      "Cost": "3456",
+      "time_Dispatched": "24356",
+      "id": 18
+    },
+    {
+      "parcel_no": 85066776,
+      "Sender": "sssssssssssss",
+      "Receiver": "rrrrrrrrrrrrrrr",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "ssssssssssss",
+      "Cost": "56788",
+      "time_Dispatched": "45ii",
+      "id": 19
+    },
+    {
+      "parcel_no": 511773710,
+      "Sender": "ssssssssssssssssrrr",
+      "Receiver": "rrrrrrrrrrrrrrr",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "4577",
+      "Cost": "345",
+      "time_Dispatched": "56",
+      "id": 20
+    },
+    {
+      "parcel_no": 390064833,
+      "Sender": "evans",
+      "Receiver": "alice",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "456",
+      "Cost": "34",
+      "time_Dispatched": "2-8-2022",
+      "id": 21
+    },
+    {
+      "parcel_no": 355043298,
+      "Sender": "evans",
+      "Receiver": "rose",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "34",
+      "Cost": "23567",
+      "time_Dispatched": "23-8-2022",
+      "id": 22
+    },
+    {
+      "parcel_no": 3965379,
+      "Sender": "evans",
+      "Receiver": "mwangangi",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "565677",
+      "Cost": "456",
+      "time_Dispatched": "3-9-2022",
+      "id": 23
+    },
+    {
+      "parcel_no": 677760956,
+      "Sender": "evans",
+      "Receiver": "rose",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "78",
+      "Cost": "2345",
+      "time_Dispatched": "34-6-2022",
+      "id": 24
+    },
+    {
+      "parcel_no": 21108294,
+      "Sender": "evans",
+      "Receiver": "larry",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "23",
+      "Cost": "3456",
+      "time_Dispatched": "16-3-2022",
+      "id": 25
+    },
+    {
+      "parcel_no": 151967387,
+      "Sender": "evans",
+      "Receiver": "eeeeeeeeeeee",
+      "destination": null,
+      "lat": null,
+      "logi": null,
+      "weight": "34",
+      "Cost": "2345",
+      "time_Dispatched": "34-9-2022",
+      "id": 26
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

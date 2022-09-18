@@ -1,0 +1,242 @@
+<!-- <div class="contain">
+
+  <div class="wrapper">
+
+    <div class="form">
+      <h4 class="form-headline">GREATE NEW PARCEL</h4>
+      <form id="submit-form" [formGroup]="formValue" (ngSubmit)="handleSubmit()">
+        <p>
+          <label for="">Sender Name</label>
+          <select class="custom-select" id="inputGroupSelect01"  formControlName="sender_id" class="form-input" placeholder="Sender's Name*">
+            <option value="Alice">Alice</option>
+            <option value="Evans">Evans</option>
+            <option value="Tom">Tom</option>
+          </select>
+          <small class="name-error" *ngIf=""></small>
+        </p>
+        <p>
+          <label for="">Receiver Name</label>
+          <select class="custom-select" id="inputGroupSelect01" formControlName="receiver_id" class="form-input">
+            <option selected>Receiver</option>
+            <option value="Alice">Alice</option>
+            <option value="Evans">Evans</option>
+            <option value="Mercy">Mercy</option>
+          </select>
+          <small class="name-error"></small>
+        </p>
+        <p>
+          <input class="form-input" ngx-google-places-autocomplete [options]=
+          'options'  (onAddressChange)="AddressChange($event)"/>        </p>
+        <p>
+          <label for="">Origin</label>
+          <select class="custom-select" id="inputGroupSelect01"  formControlName="origin" class="form-input">
+            <option selected>Origin</option>
+            <option value="Nairobi">Nairobi</option>
+            <option value="Kitale">Kitale</option>
+            <option value="Kisumu">Kisumu</option>
+          </select>
+          <small class="name-error"></small>
+        </p>
+        <p>
+          <label for="">Destination</label>
+          <select class="custom-select" id="inputGroupSelect01"   formControlName="destination" class="form-input">
+            <option selected>Destination</option>
+            <option value="Kisumu">Kisumu</option>
+            <option value="Kitale">Kitale</option>
+            <option value="Nyeri">Nyeri</option>
+          </select>
+          <small class="name-error"></small>
+        </p>
+         <p>
+          <label for="">Time Dispatched</label>
+          <input id="name" class="form-input" type="date" formControlName="Dispatch_time" placeholder="Dispatch time*">
+          <small class="name-error"></small>
+        </p>
+        <p >
+          <label for="">Parcel status</label>
+          <select class="custom-select" id="inputGroupSelect01"  formControlName="parcel_status" class="form-input" >
+            <option value="{{item}}" *ngFor="let item of parcel_status">{{item}}</option>
+          </select>
+          <small class="name-error"></small>
+        </p>
+
+        <p >
+          <label for="">Weight</label>
+          <input id="name" class="form-input" type="text" formControlName="parcel_weight" placeholder="Weight*">
+          <small class="name-error"></small>
+        </p>
+
+        <p >
+          <label for="">Charge</label>
+          <input id="name" class="form-input" type="text" formControlName="charge" placeholder="Charge*">
+          <small class="name-error" *ngIf=""></small>
+        </p>
+
+        <p class="full-width" >
+          <label for="">parcel Description</label>
+          <textarea   id="message" cols="2" rows="3" formControlName="parcel_description" placeholder="Parcels Description*" required></textarea>
+          <small></small>
+        </p>
+
+        <p class="full-width" >
+            <button  class="btn btn-primary" >Submit</button></p>
+      </form>
+    </div>
+
+    <div class="contacts contact-wrapper">
+
+
+      <ul>
+        <li>Interested in becoming Our <span class="highlight-text-grey">Customer at SENT-IT </span>, feel free to send your
+           Parcels through our services.</li>
+        <span class="hightlight-contact-info">
+          <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> sent-it@gmail.com</li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">SENT-IT.COM</span></li>
+        </span>
+      </ul>
+    </div>
+  </div>
+</div> -->
+
+
+<!--
+<div class="container">
+  <h1>GeeksforGeeks</h1>
+  <h2>Google Places Autocomplete</h2>
+
+{{ formattedaddress }}
+</div> -->
+<!-- ============================================================================================ -->
+
+<!--
+<mat-grid-list cols="1" >
+    <mat-card>
+    <form  [formGroup]="formValue" (ngSubmit)="handleSubmit()">
+      <mat-form-field>
+        <mat-label>Sender</mat-label>
+        <mat-select placeholder="" [(ngModel)]="sender_id" name="item" appearance="outline">
+          <input [(ngModel)]="searchTxt" matInput placeholder="search" >
+          <mat-option *ngFor="let item of Parcels" [value]="item.sender_id" formControlName="sender_id">
+            {{item.sender_id}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Receiver</mat-label>
+        <mat-select placeholder="" [(ngModel)]="receiver_id" name="item" appearance="outline">
+          <input [(ngModel)]="searchTxt" matInput placeholder="search" >
+          <mat-option *ngFor="let item of Parcels" [value]="item.receiver_id" formControlName="receiver_id">
+            {{item.receiver_id}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Destination</mat-label>
+          <input matInput ngx-google-places-autocomplete [options]=
+          'options'  (onAddressChange)="AddressChange($event)" formControlName="destination">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Parcel Description</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="parcel_description">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Weight</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="Weight">
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Total Cost</mat-label>
+          <input matInput placeholder="Placeholder" formControlName="Total_Charge">
+        </mat-form-field>
+
+        <div class="sub-mit">
+          <button mat-button color="primary">Submit</button>
+        </div>
+    </form>
+    </mat-card> -->
+<!-- <mat-grid-tile>
+    <div class="contacts contact-wrapper">
+      <ul>
+        <li>Interested in becoming Our <span class="highlight-text-grey">Customer at SENT-IT </span>, feel free to send your
+           Parcels through our services.</li>
+        <span class="hightlight-contact-info">
+          <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> sent-it@gmail.com</li>
+          <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">SENT-IT.COM</span></li>
+        </span>
+      </ul>
+    </div>
+  </mat-grid-tile> -->
+<!-- </mat-grid-list> -->
+
+
+<!--================================== -->
+
+<div class="container">
+
+  <div class="add_parcel">
+    <div class="row add_form">
+      <div class="col-md-8">
+        <form [formGroup]="formValue" (ngSubmit)="handleSubmit()">
+          <div class="row">
+              <div class="form-group">
+                <label for="exampleInputEmail">Sender name</label>
+                <input type="email" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="Sender" formControlName="Sender"
+                  required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-group">
+                <label for="exampleInputEmail">Receiver Name</label>
+                <input type="email" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="Receiver" formControlName="Receiver"
+                  required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-group">
+                <label for="destination">destination </label>
+                <input class="form-control" matInput ngx-google-places-autocomplete   (onAddressChange)="AddressChange($event)" >
+                <!-- <input type="email" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="destination"
+                  required> -->
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-group">
+                <label for="weight">weight</label>
+                <input type="email" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="weight" formControlName="weight"
+                  required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-group">
+                <label for="Total Cost">Total Cost </label>
+                <input type="text" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="Total Cost" formControlName="Cost"
+                  required>
+              </div>
+          </div>
+          <div class="row">
+              <div class="form-group">
+                <label for="Dispatched time">Dispatched time</label>
+                <input type="email" class="form-control" name="emailInput" id="exampleInputEmail" placeholder="Dispatched time" formControlName="time_Dispatched"
+                  required>
+              </div>
+          </div>
+          <div class="row">
+            <button class="btn btn-primary">submit</button>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-4">
+        <div class="contacts contact-wrapper">
+          <ul>
+            <li>Interested in becoming Our <span class="highlight-text-grey">Customer at SENT-IT </span>, feel free to send your
+               Parcels through our services.</li>
+            <span class="hightlight-contact-info">
+              <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> sent-it@gmail.com</li>
+              <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">SENT-IT.COM</span></li>
+            </span>
+          </ul>
+        </div>
+       </div>
+    </div>
+  </div>
+</div>

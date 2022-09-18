@@ -1,0 +1,101 @@
+<div class="contain">
+  <div *ngIf="!isUpdating">
+    <div class="wrapper" *ngIf="allParcels$ | async as parcels">
+      <div class="form">
+        <h4 class="form-headline">PARCEL DETAILS</h4>
+        <div id="submit-form">
+          <p>
+            <label for="">Sender Name</label>
+            <label class="detail_item">{{ parcels.sender_id }} </label>
+          </p>
+          <p>
+            <label for="">Receiver Name</label>
+            <label class="detail_item">{{ parcels.receiver_id }} </label>
+          </p>
+          <p>
+            <label for="">Origin</label>
+            <label class="detail_item">{{ parcels.origin }} </label>
+          </p>
+          <p>
+            <label for="">Destination</label>
+            <label class="detail_item">{{ parcels.destination }} </label>
+          </p>
+          <p>
+            <label for="">Time Dispatched</label>
+            <label class="detail_item">{{ parcels.Dispatch_time }}</label>
+          </p>
+
+          <p>
+            <label for="">Parcel status</label>
+            <label class="detail_item">{{ parcels.parcel_status }} </label>
+          </p>
+
+          <p>
+            <label for="">Weight</label>
+            <label class="detail_item">{{ parcels.Weight }} </label>
+          </p>
+
+          <p>
+            <label for="">Charge</label>
+            <label class="detail_item">{{ parcels.Charge | currency }} </label>
+          </p>
+
+          <p class="full-width">
+            <label for="">parcel Description</label>
+            <label class="detail_item">{{ parcels.parcel_description }} </label>
+          </p>
+
+          <p class="full-width">
+            <button class="btn btn-primary" (click)="Update(parcels.id)">Update</button>
+            <button class="btn btn-primary">Delete</button>
+          </p>
+
+          <p class="full-width"></p>
+        </div>
+      </div>
+
+      <div class="contacts contact-wrapper">
+        <mat-card class="example-card">
+          <ul>
+            <li>
+
+              <!-- <div style="margin: 0 auto; width:100%; height:400px;">
+                <object type="text/html"
+                 data="https://www.google.com/maps/place/Town+Hall+Rd,+Nyeri/@-0.4234455,36.9520151,16.97z/data=!4m5!3m4!1s0x18285e017f34e463:0x1b37f29e15d794fe!8m2!3d-0.423472!4d36.9519965"
+                style="width:100%; height:100%; margin:1%;">
+                </object>
+            </div> -->
+            <!--========================= -->
+            <!-- <iframe src="https://maps.google.com/?q=Nyeri-Nyahururu+Rd,+Kenya&ftid=0x178763c17b3d9289:0x67bea8e1ab46702d"></iframe> -->
+            <!-- ========================= -->
+
+              <!-- google-maps-demo.component.html -->
+              <google-map height="400px"
+              width="500px"
+              [center]="center"
+              [zoom]="zoom"
+              (mapClick)="moveMap($event)"
+              (mapMousemove)="move($event)">
+              <map-marker *ngFor="let markerPosition of markerPositions"
+              [position]="markerPosition"
+              [options]="markerOptions"></map-marker>
+              </google-map>
+              <!-- <div>Latitude: {{display?.lat}}</div>
+              <div>Longitude: {{display?.lng}}</div> -->
+              <!-- <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.21189417865!2d36.917681393708584!3d-0.4398688873777691!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x18285dfed09e0ebf%3A0x829716f702f65e9e!2sNyeri!5e0!3m2!1sen!2ske!4v1662469633681!5m2!1sen!2ske"
+                width="500"
+                height="400"
+                style="border: 0"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe> -->
+            </li>
+          </ul>
+        </mat-card>
+      </div>
+    </div>
+  </div>
+  </div>
+
