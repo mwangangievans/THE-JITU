@@ -50,11 +50,6 @@ export class AddParcelComponent implements OnInit {
 
 
   handleSubmit(){
-
-    // console.log(this.formValue.value);
-
-    // if (this.formValue.valid) {
-
       const ParcelData={...this.formValue.value,
         destination:this.destination_address,
         lat:this.lat,
@@ -75,22 +70,14 @@ export class AddParcelComponent implements OnInit {
        }, 500);
     }
 
-  // }
-
-  // ===============================================================================
-
   public AddressChange(address: any) {
     console.log(address.name);
 
 
   this.destination_address = address.name
   this.lat = address.geometry.location.lat();
- this.logi = address.geometry.location.lng();
-
+  this.logi = address.geometry.location.lng();
 
   }
-
-
-
 
 }
