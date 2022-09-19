@@ -22,6 +22,7 @@ const db = new db_1.default();
 const Email_1 = __importDefault(require("../Helpers/Email"));
 const DeliveredEmail = () => __awaiter(void 0, void 0, void 0, function* () {
     const pool = yield mssql_1.default.connect(Config_1.sqlConfig);
+    console.log("delivered.....");
     const parcels = yield (yield db.exec("sent_delivered_mails")).recordset;
     console.log(parcels);
     for (let parcel of parcels) {
@@ -40,8 +41,7 @@ const DeliveredEmail = () => __awaiter(void 0, void 0, void 0, function* () {
             };
             try {
                 yield (0, Email_1.default)(messageoption);
-                yield db.exec("reset_delivered_notify", { id: parcel.parcel_no });
-                // await  pool.request().query(`UPDATE ParcelsTable SET delivered=0 WHERE delivered=1`)
+                yield db.exec("reset_delivered_notify", { parcel_no: parcel.parcel_no });
                 console.log('Delivered Email is Sent');
             }
             catch (error) {

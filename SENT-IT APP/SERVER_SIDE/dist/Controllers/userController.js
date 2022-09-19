@@ -40,6 +40,7 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         console.log(req.body);
         const user_role = "user";
         const is_sent = "0";
+        const is_deleted = "0";
         const { email, password, name, phone } = req.body;
         const { error, value } = userValidation_js_1.UserSchema.validate(req.body);
         if (error) {
@@ -49,11 +50,11 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
         if (check_if_user_exist[0]) {
             return res
                 .status(409)
-                .json({ message: "user with that email already exist" });
+                .json({ message: "user with that email already exist", statuscode: 409 });
         }
         else {
             const hashedpassword = yield bcrypt_1.default.hash(password, 10);
-            yield db.exec("InsertUpdate", {
+            yield db.exec("CREATEUSER", {
                 user_id,
                 email,
                 phone,
@@ -61,11 +62,12 @@ const registerUser = (req, res) => __awaiter(void 0, void 0, void 0, function* (
                 user_role,
                 is_sent,
                 name,
+                is_deleted
             });
             res
                 .status(200)
                 .json({
-                message: "Registered...Redirecting to login page....",
+                message: "Registered...Redirecting to login page....", statuscode: 200
             });
         }
     }
@@ -84,12 +86,12 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         }
         const user_exist = (yield db.exec("check_user_if_exist", { email })).recordset;
         if (!user_exist[0]) {
-            return res.status(401).json({ message: "User Not found" });
+            return res.status(401).json({ message: "User Not found", statuscode: 200 });
         }
         console.log(password);
         const valid_password = yield bcrypt_1.default.compare(password, user_exist[0].hashedpassword);
         if (!valid_password) {
-            res.status(401).json({ message: "invalid details" });
+            res.status(401).json({ message: "invalid details", statuscode: 401 });
         }
         const payload = user_exist.map((item) => {
             const { hashedpassword } = item, rest = __rest(item, ["hashedpassword"]);
@@ -99,7 +101,7 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const token = jsonwebtoken_1.default.sign(payload[0], process.env.key);
         return res
             .status(200)
-            .json({ message: "you are logged in", token: token });
+            .json({ message: "you are logged in", token: token, statuscode: 200 });
     }
     catch (error) {
         console.log(error);
@@ -123,10 +125,9 @@ exports.getAllUsers = getAllUsers;
 const getSingleUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const user_id = req.params.id;
-        console.log(user_id);
         const single_user = (yield db.exec("get_single_user", { user_id })).recordset;
-        if (!single_user) {
-            res.json({ message: "user not found!!" });
+        if (single_user.length === 0) {
+            res.status(404).json({ message: "user not found!!", statuscode: 404 });
         }
         else {
             console.log(single_user);
@@ -140,45 +141,36 @@ const getSingleUser = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 exports.getSingleUser = getSingleUser;
 const deleteUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
-        const pool = yield mssql_1.default.connect(config_js_1.sqlConfig);
-        const delete_user = yield pool
-            .request()
-            .input("id", mssql_1.default.VarChar, id)
-            .execute("get_single_user");
-        if (!delete_user.recordset[0]) {
-            res.json({ message: "user with that id does not exist..." });
+        const user_id = req.params.id;
+        const single_user = (yield db.exec("get_single_user", { user_id })).recordset;
+        console.log("user....." + single_user);
+        if (single_user.length === 0) {
+            return res.status(404).json({ message: "User with that id does not exist...", statuscode: 404 });
         }
         else {
-            yield pool.request().input("id", mssql_1.default.VarChar, id).execute("deleteUser");
-            res.json({ message: "user successfully deleted...." });
+            yield db.exec("deleteUser", { user_id });
+            return res.status(202).json({ message: "User successfully deleted....", statuscode: 202 });
         }
     }
     catch (error) {
         res.json({ error });
     }
+    ;
 });
 exports.deleteUser = deleteUser;
 const updateuser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const id = req.params.id;
-        const pool = yield mssql_1.default.connect(config_js_1.sqlConfig);
-        const { user_name, user_email, role } = req.body;
-        const user_to_update = yield pool
-            .request()
-            .input("id", mssql_1.default.VarChar, id)
-            .execute("get_single_user");
-        if (!user_to_update.recordset[0]) {
+        const user_id = req.params.id;
+        const { user_email, phone, user_role, user_name, is_deleted } = req.body;
+        console.log(user_email, phone, user_role, user_name, is_deleted);
+        const single_user = (yield db.exec("get_single_user", { user_id })).recordset;
+        if (single_user.length === 0) {
             return res.json({ message: "user with that id does not exist..." });
         }
-        yield pool
-            .request()
-            .input("id", mssql_1.default.VarChar, id)
-            .input("user_email", mssql_1.default.VarChar, user_email)
-            .input("role", mssql_1.default.VarChar, role)
-            .input("user_name", mssql_1.default.VarChar, user_name)
-            .execute("updateUser");
-        res.json({ message: "user successfully updated....." });
+        else {
+            yield db.exec("UpdateUser", { user_id, user_email, phone, user_role, user_name, is_deleted });
+            return res.status(204).json({ message: "User successfully updated....", statuscode: 204 });
+        }
     }
     catch (error) {
         res.json({ error });

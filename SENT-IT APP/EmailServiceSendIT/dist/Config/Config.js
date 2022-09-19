@@ -13,11 +13,12 @@ exports.sqlConfig = {
     server: 'localhost',
     pool: {
         max: 10,
-        min: 5,
-        idleTimeoutMillis: 30000
+        min: 0,
+        idleTimeoutMillis: 3000
     },
     options: {
         encrypt: false,
         trustServerCertificate: false // change to true for local dev / self-signed certs
     }
 };
+// =================================

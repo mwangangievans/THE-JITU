@@ -20,7 +20,8 @@ const DeliveredEmail_1 = __importDefault(require("./EmailService/DeliveredEmail"
 const app = (0, express_1.default)();
 const run = () => {
     node_cron_1.default.schedule('* * * * *', () => __awaiter(void 0, void 0, void 0, function* () {
-        console.log('cron is running');
+        console.log("delivered.....11");
+        console.log('cron is running.....22');
         yield (0, WelcomeEmailService_1.default)();
         yield (0, OnTransitEmailService_1.default)();
         yield (0, DeliveredEmail_1.default)();
@@ -28,5 +29,5 @@ const run = () => {
 };
 run();
 app.listen(3000, () => {
-    console.log('Email service is running');
+    console.log('Email service is running.........................1');
 });

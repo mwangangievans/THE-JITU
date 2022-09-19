@@ -22,7 +22,7 @@ const db_1 = __importDefault(require("../DatabaseHelpers/db"));
 const db = new db_1.default();
 const WelcomeEmail = () => __awaiter(void 0, void 0, void 0, function* () {
     const pool = yield mssql_1.default.connect(Config_1.sqlConfig);
-    const users = yield (yield db.exec("welcomeEmail")).recordset;
+    const users = yield (yield db.exec("welcom_mail")).recordset;
     console.log(users);
     for (let user of users) {
         ejs_1.default.renderFile("templates/WelcomeEmail.ejs", { name: user.name }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
@@ -40,7 +40,8 @@ const WelcomeEmail = () => __awaiter(void 0, void 0, void 0, function* () {
             };
             try {
                 yield (0, Email_1.default)(messageoption);
-                yield db.exec("resetwelcomeEmail", { id: user.id });
+                console.log(user.user_id);
+                yield db.exec("reset_welcom_mail", { user_id: user.user_id });
                 console.log("Welcome Email Sent");
             }
             catch (error) {

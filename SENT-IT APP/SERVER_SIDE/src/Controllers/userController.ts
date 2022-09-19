@@ -34,6 +34,8 @@ export const registerUser = async (req: ExtendedRequest, res: Response) => {
 
     const user_role: string = "user";
     const is_sent = "0";
+    const is_deleted = "0";
+
 
     const { email, password, name, phone } = req.body;
     const { error, value } = UserSchema.validate(req.body);
@@ -48,11 +50,11 @@ export const registerUser = async (req: ExtendedRequest, res: Response) => {
     if (check_if_user_exist[0]) {
       return res
         .status(409)
-        .json({ message: "user with that email already exist" });
+        .json({ message: "user with that email already exist" ,statuscode:409});
     } else {
       const hashedpassword = await bcrypt.hash(password, 10);
 
-      await db.exec("InsertUpdate", {
+      await db.exec("CREATEUSER", {
         user_id,
         email,
         phone,
@@ -60,11 +62,12 @@ export const registerUser = async (req: ExtendedRequest, res: Response) => {
         user_role,
         is_sent,
         name,
+        is_deleted
       });
       res
         .status(200)
         .json({
-          message: "Registered...Redirecting to login page....",
+          message: "Registered...Redirecting to login page....",statuscode:200
         });
     }
   } catch (error) {
@@ -87,7 +90,7 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
       ).recordset;
  
     if (!user_exist[0]) {
-      return res.status(401).json({ message: "User Not found" });
+      return res.status(401).json({ message: "User Not found" ,statuscode:200});
     }
     console.log(password);
     
@@ -97,7 +100,7 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
     );
 
     if (!valid_password) {
-      res.status(401).json({ message: "invalid details" });
+      res.status(401).json({ message: "invalid details" ,statuscode:401});
     }
 
     const payload = user_exist.map((item) => {
@@ -109,7 +112,7 @@ export const loginUser = async (req: ExtendedRequest, res: Response) => {
     const token = jwt.sign(payload[0], process.env.key as string);
     return res
       .status(200)
-      .json({ message: "you are logged in", token: token});
+      .json({ message: "you are logged in", token: token,statuscode:200});
   } catch (error: any) {
     console.log(error);
   }
@@ -139,14 +142,13 @@ export const getSingleUser: RequestHandler<{ id: string }> = async (
 ) => {
   try {
     const user_id = req.params.id;
-    console.log(user_id);
     
     const single_user: User[] = (
         await db.exec("get_single_user",{user_id})
       ).recordset;
 
-    if (!single_user) {
-      res.json({ message: "user not found!!" });
+    if (single_user.length===0) {
+      res.status(404).json({ message: "user not found!!" ,statuscode:404});
     } else {
       console.log(single_user);
 
@@ -159,51 +161,52 @@ export const getSingleUser: RequestHandler<{ id: string }> = async (
 
 export const deleteUser: RequestHandler<{ id: string }> = async (req, res) => {
   try {
-    const id = req.params.id;
-    const pool = await mssql.connect(sqlConfig);
+    const user_id = req.params.id
+    const single_user: User[] = (
+        await db.exec("get_single_user",{user_id})
+      ).recordset;   
+      
 
-    const delete_user = await pool
-      .request()
-      .input("id", mssql.VarChar, id)
-      .execute("get_single_user");
-    if (!delete_user.recordset[0]) {
-      res.json({ message: "user with that id does not exist..." });
-    } else {
-      await pool.request().input("id", mssql.VarChar, id).execute("deleteUser");
-      res.json({ message: "user successfully deleted...." });
-    }
-  } catch (error: any) {
-    res.json({ error });
-  }
+      console.log("user....."+single_user);
+      
+      
+      if (single_user.length===0) {
+     return res.status(404).json({ message: "User with that id does not exist..." ,statuscode:404})
+     }else{
+        await db.exec("deleteUser",{user_id})
+
+       return  res.status(202 ).json({ message: "User successfully deleted...." ,statuscode:202})
+     }
+    
+} catch (error:any) {
+    res.json({error})
 };
+}
 
 export const updateuser: RequestHandler<{ id: string }> = async (req, res) => {
   try {
-    const id = req.params.id;
-    const pool = await mssql.connect(sqlConfig);
+    const user_id = req.params.id;
+    
+  
+    const { user_email,phone ,user_role, user_name,is_deleted } = req.body 
+    
+console.log(
+  user_email,phone ,user_role, user_name,is_deleted 
+    );
 
-    const { user_name, user_email, role } = req.body as {
-      user_name: string;
-      user_email: string;
-      role: string;
-    };
-
-    const user_to_update = await pool
-      .request()
-      .input("id", mssql.VarChar, id)
-      .execute("get_single_user");
-    if (!user_to_update.recordset[0]) {
+    const single_user: User[] = (
+        await db.exec("get_single_user",{user_id})
+      ).recordset;   
+      
+      
+    if (single_user.length===0) {
       return res.json({ message: "user with that id does not exist..." });
-    }
-    await pool
-      .request()
-      .input("id", mssql.VarChar, id)
-      .input("user_email", mssql.VarChar, user_email)
-      .input("role", mssql.VarChar, role)
-      .input("user_name", mssql.VarChar, user_name)
-      .execute("updateUser");
+    }else{
+      await db.exec("UpdateUser",{user_id, user_email,phone ,user_role, user_name,is_deleted })
 
-    res.json({ message: "user successfully updated....." });
+      return  res.status(204).json({ message: "User successfully updated...." ,statuscode:204 })
+    }
+ 
   } catch (error: any) {
     res.json({ error });
   }
@@ -217,4 +220,5 @@ export const checkUser = async (req: Extended, res: Response) => {
       user_email: req.info.user_email,
     });
   }
-};
+}
+

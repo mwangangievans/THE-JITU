@@ -25,10 +25,11 @@ interface IParcel{
 
 const DeliveredEmail= async()=>{
 const pool = await mssql.connect(sqlConfig)
+
+console.log("delivered.....");
+
 const parcels:IParcel[]= await (await db.exec("sent_delivered_mails")).recordset
 console.log(parcels);
-
-
 
  for(let parcel of parcels){
 
@@ -51,8 +52,7 @@ console.log(parcels);
         try {
             
             await sendMail(messageoption)
-            await db.exec("reset_delivered_notify", { id: parcel.parcel_no });
-            // await  pool.request().query(`UPDATE ParcelsTable SET delivered=0 WHERE delivered=1`)
+            await db.exec("reset_delivered_notify", { parcel_no: parcel.parcel_no }); 
             console.log('Delivered Email is Sent');
             
         } catch (error) {

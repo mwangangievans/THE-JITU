@@ -7,7 +7,7 @@ import sendMail from "../Helpers/Email";
 import Connection from "../DatabaseHelpers/db";
 const db = new Connection();
 interface IUser {
-  id: string;
+  user_id: string;
   name: string;
   email: string;
   welcome: string;
@@ -15,7 +15,7 @@ interface IUser {
 
 const WelcomeEmail = async () => {
   const pool = await mssql.connect(sqlConfig);
-  const users: IUser[] = await (await db.exec("welcomeEmail")).recordset;
+  const users: IUser[] = await (await db.exec("welcom_mail")).recordset;
   
   console.log(users);
 
@@ -39,8 +39,9 @@ const WelcomeEmail = async () => {
 
         try {
           await sendMail(messageoption);
-
-          await db.exec("resetwelcomeEmail", { id: user.id });
+          console.log(user.user_id);
+          
+          await db.exec("reset_welcom_mail", { user_id:user.user_id }); 
 
           console.log("Welcome Email Sent");
         } catch (error) {

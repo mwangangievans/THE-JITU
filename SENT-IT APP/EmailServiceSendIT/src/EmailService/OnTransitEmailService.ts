@@ -7,40 +7,41 @@ import Connection from "../DatabaseHelpers/db";
 const db = new Connection();
 import sendMail from '../Helpers/Email'
 interface IParcel{
-    id:string,
-    senderName:string
-    receiverName:string
-    senderEmail:string
-    receiverEmail:string
-    origin:string
+    sender_name:string
+    sender_email:string
+    sender_phone:string
+    receiver_name:string
+    receiver_email:string
+    Receiver_phone:string
+    time_Dispatched:string
     destination:string
-    dispatchedDate:string
-    deliveryDate:string
+    parcel_no:string
     weight:string
-    price:string
+    cost_per_kg:string
+    total_cost:string
 }
 
 
 const OnTransitEmail= async()=>{
 const pool = await mssql.connect(sqlConfig)
-const parcels:IParcel[]= await (await db.exec("transitEmail")).recordset
+const parcels:IParcel[]= await (await db.exec("sent_dispatched_mails")).recordset
 
 console.log(parcels);
 
 
  for(let parcel of parcels){
 
-    ejs.renderFile('templates/OnTransitEmail.ejs',{senderName:parcel.senderName,receiverName:parcel.receiverName,parcelOrigin:parcel.origin, deliveryDate:parcel.deliveryDate,parcelDestination:parcel.destination} ,async(error,data)=>{
+    ejs.renderFile('templates/OnTransitEmail.ejs',{senderName:parcel.sender_name,receiverName:parcel.receiver_name, deliveryDate:parcel.time_Dispatched,parcelDestination:parcel.destination} ,async(error,data)=>{
 
         let messageoption={
             from:process.env.EMAIL,
-            to:parcel.receiverEmail,
-            subject:"Your Parcel is on Transit",
+            to:parcel.receiver_email,
+            subject:"Your Parcel has been dispatched",
             html:data,
             attachments:[
                 {
                     filename:'order.txt',
-                    content:`You have a parcel on transit from : ${parcel.senderName}`
+                    content:`Your  parcel is on transit from : ${parcel.sender_name}`
                 }
             ]
         }
@@ -48,7 +49,7 @@ console.log(parcels);
         try {
             
             await sendMail(messageoption)
-            await db.exec("resettransitEmail", { id: parcel.id });
+            await db.exec("reset_dispatched_notify", { parcel_no: parcel.parcel_no });
            
             console.log('On Transit Email Sent');
             
@@ -59,17 +60,17 @@ console.log(parcels);
 
 
     })
-    ejs.renderFile('templates/AdminOnTransitEmail.ejs',{senderName:parcel.senderName,receiverName:parcel.receiverName,parcelOrigin:parcel.origin, deliveryDate:parcel.deliveryDate,parcelDestination:parcel.destination} ,async(error,data)=>{
+    ejs.renderFile('templates/AdminOnTransitEmail.ejs',{senderName:parcel.sender_name,receiverName:parcel.receiver_name, deliveryDate:parcel.time_Dispatched,parcelDestination:parcel.destination} ,async(error,data)=>{
 
         let messageoption={
             from:process.env.EMAIL,
-            to:parcel.senderEmail,
+            to:parcel.sender_email,
             subject:"Your Parcel is on Transit",
             html:data,
             attachments:[
                 {
                     filename:'order.txt',
-                    content:`Your order details for : ${parcel.receiverName}`
+                    content:`Your order details for : ${parcel.receiver_name}`
                 }
             ]
         }
@@ -77,8 +78,8 @@ console.log(parcels);
         try {
             
             await sendMail(messageoption)
-            
-            console.log('Email is Sent');
+            await db.exec("reset_dispatched_notify", { parcel_no: parcel.parcel_no }); 
+            console.log(' dispatched Email is Sent');
             
         } catch (error) {
             console.log(error);

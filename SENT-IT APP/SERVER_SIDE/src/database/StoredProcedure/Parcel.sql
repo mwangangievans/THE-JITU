@@ -1,6 +1,6 @@
 --  PROCEDURE TO INSERT AND UPDATE PARCEL
 
-ALTER PROCEDURE [dbo].[InsertUpdateParcel]
+CREATE PROCEDURE InsertUpdateParcel
 (
 		@parcel_no INTEGER  NULL,
 		@Cost varchar(255)  NULL  ,

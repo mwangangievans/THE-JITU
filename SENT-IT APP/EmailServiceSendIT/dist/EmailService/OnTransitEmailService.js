@@ -22,47 +22,48 @@ const db = new db_1.default();
 const Email_1 = __importDefault(require("../Helpers/Email"));
 const OnTransitEmail = () => __awaiter(void 0, void 0, void 0, function* () {
     const pool = yield mssql_1.default.connect(Config_1.sqlConfig);
-    const parcels = yield (yield db.exec("transitEmail")).recordset;
+    const parcels = yield (yield db.exec("sent_dispatched_mails")).recordset;
     console.log(parcels);
     for (let parcel of parcels) {
-        ejs_1.default.renderFile('templates/OnTransitEmail.ejs', { senderName: parcel.senderName, receiverName: parcel.receiverName, parcelOrigin: parcel.origin, deliveryDate: parcel.deliveryDate, parcelDestination: parcel.destination }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
+        ejs_1.default.renderFile('templates/OnTransitEmail.ejs', { senderName: parcel.sender_name, receiverName: parcel.receiver_name, deliveryDate: parcel.time_Dispatched, parcelDestination: parcel.destination }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
             let messageoption = {
                 from: process.env.EMAIL,
-                to: parcel.receiverEmail,
-                subject: "Your Parcel is on Transit",
+                to: parcel.receiver_email,
+                subject: "Your Parcel has been dispatched",
                 html: data,
                 attachments: [
                     {
                         filename: 'order.txt',
-                        content: `You have a parcel on transit from : ${parcel.senderName}`
+                        content: `Your  parcel is on transit from : ${parcel.sender_name}`
                     }
                 ]
             };
             try {
                 yield (0, Email_1.default)(messageoption);
-                yield db.exec("resettransitEmail", { id: parcel.id });
+                yield db.exec("reset_dispatched_notify", { parcel_no: parcel.parcel_no });
                 console.log('On Transit Email Sent');
             }
             catch (error) {
                 console.log(error);
             }
         }));
-        ejs_1.default.renderFile('templates/AdminOnTransitEmail.ejs', { senderName: parcel.senderName, receiverName: parcel.receiverName, parcelOrigin: parcel.origin, deliveryDate: parcel.deliveryDate, parcelDestination: parcel.destination }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
+        ejs_1.default.renderFile('templates/AdminOnTransitEmail.ejs', { senderName: parcel.sender_name, receiverName: parcel.receiver_name, deliveryDate: parcel.time_Dispatched, parcelDestination: parcel.destination }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
             let messageoption = {
                 from: process.env.EMAIL,
-                to: parcel.senderEmail,
+                to: parcel.sender_email,
                 subject: "Your Parcel is on Transit",
                 html: data,
                 attachments: [
                     {
                         filename: 'order.txt',
-                        content: `Your order details for : ${parcel.receiverName}`
+                        content: `Your order details for : ${parcel.receiver_name}`
                     }
                 ]
             };
             try {
                 yield (0, Email_1.default)(messageoption);
-                console.log('Email is Sent');
+                yield db.exec("reset_dispatched_notify", { parcel_no: parcel.parcel_no });
+                console.log(' dispatched Email is Sent');
             }
             catch (error) {
                 console.log(error);

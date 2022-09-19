@@ -7,16 +7,18 @@ const app = express()
 
 const run =()=>{
     cron.schedule('* * * * *', async()=>{
-        console.log('cron is running');
+        console.log("delivered.....11");
+        console.log('cron is running.....22');
         await WelcomeEmail()
         await OnTransitEmail()
         await DeliveredEmail()
-        
+
     })
 }
 run()
 
 app.listen(3000, ()=>{
-    console.log('Email service is running');
+    
+    console.log('Email service is running.........................1');
     
 })
