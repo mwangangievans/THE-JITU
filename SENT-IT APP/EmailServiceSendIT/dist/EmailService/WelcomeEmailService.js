@@ -25,7 +25,7 @@ const WelcomeEmail = () => __awaiter(void 0, void 0, void 0, function* () {
     const users = yield (yield db.exec("welcom_mail")).recordset;
     console.log(users);
     for (let user of users) {
-        ejs_1.default.renderFile("templates/WelcomeEmail.ejs", { name: user.name }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
+        ejs_1.default.renderFile("templates/welcomw1.ejs", { name: user.name }, (error, data) => __awaiter(void 0, void 0, void 0, function* () {
             let messageoption = {
                 from: process.env.EMAIL,
                 to: user.email,

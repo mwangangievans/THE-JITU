@@ -32,8 +32,8 @@ CREATE TABLE Parcel_table
 	destination_lat Decimal(8,6) NOT NULL  ,
 	destination_logi Decimal(9,6) NOT NULL  ,
     PRIMARY KEY (parcel_no),
-	FOREIGN KEY (sender_id) REFERENCES Users(user_id),
-	FOREIGN KEY (receiver_id) REFERENCES Users(user_id)
+	FOREIGN KEY (sender_id) REFERENCES Users(user_id) 
+	FOREIGN KEY (receiver_id) REFERENCES Users(user_id) 
 );
 
 

@@ -21,7 +21,7 @@ const WelcomeEmail = async () => {
 
   for (let user of users) {
     ejs.renderFile(
-      "templates/WelcomeEmail.ejs",
+      "templates/welcomw1.ejs",
       { name: user.name },
       async (error, data) => {
         let messageoption = {

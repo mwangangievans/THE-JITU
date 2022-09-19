@@ -1,0 +1,19 @@
+<div class="text-center">
+
+  <p>
+      <button class="btn btn-primary" (click)="openGoogelMapsModal()">Open Google Map</button>
+  </p>
+  <h1>
+      <p *ngIf="coordinates.address">
+          Address: {{coordinates.address}}
+      </p>
+  </h1>
+  <h3>
+      <p *ngIf="coordinates.latitude">
+          Latitude: {{coordinates.latitude}}
+      </p>
+      <p *ngIf="coordinates.longitude">
+          Longitude: {{coordinates.longitude}}
+      </p>
+  </h3>
+</div>
