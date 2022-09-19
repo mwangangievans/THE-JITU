@@ -1,6 +1,5 @@
 import { Router } from "express";
 import {registerUser ,getSingleUser , loginUser,getAllUsers,deleteUser,checkUser, updateuser} from "../Controllers/userController.js"
-import {updateProject,delete_project,getAllProjects} from "../Controllers/projectController.js"
 import {VerifyToken }from "../middleware/verifyToken.js"
 import { createParcel, delete_parcel, getAllParcels, getSingleParcel } from "../Controllers/parcelController.js";
 
