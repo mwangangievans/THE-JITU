@@ -12,20 +12,20 @@ import { ParcelSchema } from "../helpers/parcelValidation.js";
 
 interface ExtendedRequest extends Request {
     body: {
-        Cost: string
-        Receiver: string
-        Sender: string
-        deliverde_notify: any
-        destination: string
-        dispatch_notify: any
-        is_deleted: any
-        is_delived: any
-        is_dispatched: any
-        lat: any
-        logi: any
-        parcel_no: any
-        time_Dispatched: string
-        weight: string
+      Cost: string
+      Receiver: string
+      Sender: string
+      deliverde_notify: any
+      destination: string
+      dispatch_notify: any
+      is_deleted: any
+      is_delived: any
+      is_dispatched: any
+      lat: any
+      logi: any
+      parcel_no: any
+      time_Dispatched: string
+      weight: string
     }
 
 }
@@ -67,11 +67,11 @@ export const getSingleParcel: RequestHandler<{ id: string }> = async (
     try {
       const parcel_no = req.params.id;
       
-      const single_user: Parcel[] = (
+      const single_user: Parcel= (
           await db.exec("get_single_parcel",{parcel_no})
-        ).recordset;
+        ).recordset[0];
   
-      if (single_user.length===0) {
+      if (!single_user) {
         return res.json({ message: "Parcel not found!!" });
       } else {
   

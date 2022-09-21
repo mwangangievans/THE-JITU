@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router,  } from '@angular/router';
 import { Observable } from 'rxjs';
-import { parcel_interface } from 'src/app/interface/interface';
+import { parcel_interface, parcel_interface_response } from 'src/app/interface/interface';
 import { ParcelService } from 'src/app/services/parcel.service';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 
@@ -16,19 +16,31 @@ import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 export class ViewDetailDialogComponent implements OnInit {
    id:number = 0 ;
    isUpdating:boolean=false
-   allParcels$!: Observable<parcel_interface>
+   allParcels$!: Observable<parcel_interface_response>
    markerOptions: google.maps.MarkerOptions = {draggable: false};
    markerPositions: google.maps.LatLngLiteral[] = [];
+   logitude!:number
+   latitude!:number
 
 
 
   constructor(private router:Router ,private route:ActivatedRoute ,private parcel_service:ParcelService ) { }
 
   ngOnInit(): void {
-    this.markerPositions.push({ lat: 1.3836406165683048 , lng: 38.621918374999986});
     this.id = this.route.snapshot.params['id']
-    console.log("parcel_no to details"+this.id);
-    this.parcelDetails()
+
+    this.allParcels$=this.parcel_service.getOneParcels(+this.id)
+    this.allParcels$.subscribe(data=>{
+      this.logitude=data.logitude
+      this.latitude=data.latitude
+
+      this.markerPositions.push({ lat: this.latitude , lng: this.logitude});
+
+    }
+
+    )
+    console.log("obsavable........."+this.allParcels$);
+
   }
   display: any;
     center: google.maps.LatLngLiteral = {
@@ -42,11 +54,6 @@ export class ViewDetailDialogComponent implements OnInit {
         if (event.latLng != null) this.display = event.latLng.toJSON();
     }
 
-
-
-  parcelDetails(){
-     this.allParcels$ = this.parcel_service.getOneParcels(+this.id)
-  }
 
 //  ===================================================update logic==========================
 Update(id:number){

@@ -39,6 +39,7 @@ export class LoginComponent implements OnInit {
     this.auth.loginAuthentication(loginData).subscribe(
       res=>{
       localStorage.setItem("token",res.token)
+
       console.log(res);
       this.checkRole()
     },error=>{

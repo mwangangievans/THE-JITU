@@ -21,7 +21,7 @@ router.delete('/delete/:id' ,VerifyToken,deleteUser)
 export const parcel_router = Router();
 
 parcel_router.post('/create'  ,VerifyToken, createParcel)
-parcel_router.get('/show/:id'  ,VerifyToken, getSingleParcel)
+parcel_router.get('/show/:id'  , getSingleParcel)
 parcel_router.delete('/delete/:id' ,VerifyToken, delete_parcel)
 parcel_router.get('/all-parcels',VerifyToken,getAllParcels)
 

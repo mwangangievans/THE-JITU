@@ -6,47 +6,44 @@
         <div id="submit-form">
           <p>
             <label for="">Sender Name</label>
-            <label class="detail_item">{{ parcels.sender_id }} </label>
+            <label class="detail_item">{{ parcels.sender_name }} </label>
           </p>
-          <p>
+           <p>
             <label for="">Receiver Name</label>
-            <label class="detail_item">{{ parcels.receiver_id }} </label>
+            <label class="detail_item">{{ parcels.receiver_name }} </label>
           </p>
-          <p>
-            <label for="">Origin</label>
-            <label class="detail_item">{{ parcels.origin }} </label>
-          </p>
+
           <p>
             <label for="">Destination</label>
             <label class="detail_item">{{ parcels.destination }} </label>
           </p>
           <p>
             <label for="">Time Dispatched</label>
-            <label class="detail_item">{{ parcels.Dispatch_time }}</label>
+            <label class="detail_item">{{ parcels.time_Dispatched }}</label>
           </p>
 
           <p>
             <label for="">Parcel status</label>
-            <label class="detail_item">{{ parcels.parcel_status }} </label>
+            <label class="detail_item" *ngIf="parcels.is_delived" style="color: green;">
+              Delivered</label>
+              <label class="detail_item" *ngIf="parcels.is_dispatched&& !parcels.is_delived" style="color: green;">
+                Dispatched</label>
           </p>
 
           <p>
             <label for="">Weight</label>
-            <label class="detail_item">{{ parcels.Weight }} </label>
+            <label class="detail_item">{{ parcels.weight }} </label>
           </p>
 
           <p>
             <label for="">Charge</label>
-            <label class="detail_item">{{ parcels.Charge | currency }} </label>
+            <label class="detail_item">{{ parcels.total_cost | currency }} </label>
           </p>
 
-          <p class="full-width">
-            <label for="">parcel Description</label>
-            <label class="detail_item">{{ parcels.parcel_description }} </label>
-          </p>
+
 
           <p class="full-width">
-            <button class="btn btn-primary" (click)="Update(parcels.id)">Update</button>
+            <button class="btn btn-primary" (click)="Update(parcels.parcel_no)">Update</button>
             <button class="btn btn-primary">Delete</button>
           </p>
 

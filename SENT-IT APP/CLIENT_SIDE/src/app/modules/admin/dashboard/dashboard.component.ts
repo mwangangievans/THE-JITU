@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { parcel_interface } from 'src/app/interface/interface';
+import { parcel_interface, parcel_interface_response } from 'src/app/interface/interface';
 import { AuthService } from 'src/app/services/auth.service';
 import { ParcelService } from 'src/app/services/parcel.service';
 
@@ -12,7 +12,7 @@ export class DashboardComponent implements OnInit {
 
 
 // =======================================
-allParcels: parcel_interface [] = [];
+allParcels: parcel_interface_response [] = [];
 totalParcelCount! : number;
 totalUserCount! : number;
 

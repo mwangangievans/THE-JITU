@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { count, map } from 'rxjs';
-import { parcel_interface } from 'src/app/interface/interface';
+import { parcel_interface, parcel_interface_response } from 'src/app/interface/interface';
 import { ParcelService } from 'src/app/services/parcel.service';
 import { ViewDetailDialogComponent } from '../view-detail-dialog/view-detail-dialog.component';
 
@@ -12,17 +12,19 @@ import { ViewDetailDialogComponent } from '../view-detail-dialog/view-detail-dia
 })
 export class PercelsComponent implements OnInit {
 
-  allParcels: parcel_interface [] = [];
+  allParcels: parcel_interface_response [] = [];
   totalParcelCount! : number;
   filteredString:string='';
 
   constructor( private parcel_service:ParcelService ) { }
 
   ngOnInit(): void {
-    console.log(this.filteredString);
 
     this.parcel_service.getAllParcels().subscribe(res=>{
       this.allParcels=res
+
+      console.log(this.allParcels);
+
     })
     this.totalParcels()
 

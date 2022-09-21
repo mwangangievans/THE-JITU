@@ -43,21 +43,22 @@
                 <th>Parcel No</th>
                 <th>Sender </th>
                 <th>Receiver </th>
-                <th>Origin</th>
                 <th>Destination</th>
-                <th>Parcel status</th>
                 <th>Weight</th>
+                <th>Parcel status</th>
+                <th>Charge</th>
                 <th>Action</th>
               </tr>
               <tr *ngFor="let parcel of allParcels|filter:filteredString">
-                <td><a  (click)="viewDetails(parcel.id)">{{parcel.parcel_no}}</a></td>
-                <td>{{parcel.sender_id}}</td>
-                <td>{{parcel.receiver_id}}</td>
-                <td>{{parcel.origin}}</td>
+                <td><a  (click)="viewDetails(parcel.parcel_no)">{{parcel.parcel_no}}</a></td>
+                <td>{{parcel.sender_name}}</td>
+                <td>{{parcel.receiver_name}}</td>
                 <td>{{parcel.destination}}</td>
-                <td>{{parcel.parcel_status}}</td>
-                <td>{{parcel.Weight}}</td>
-                <td><p><button  class="seeMore" (click)="viewDetails(parcel.id)">See More</button></p></td>
+                <td>{{parcel.weight}}</td>
+                <td>{{parcel.total_cost|currency}}</td>
+                <td *ngIf="parcel.is_delived" style="color: green;">Delivered</td>
+                <td *ngIf="parcel.is_dispatched&& !parcel.is_delived" >Dispatched</td>
+                <td><p><button  class="seeMore" (click)="viewDetails(parcel.parcel_no)">See More</button></p></td>
               </tr>
             </table>
           </div>

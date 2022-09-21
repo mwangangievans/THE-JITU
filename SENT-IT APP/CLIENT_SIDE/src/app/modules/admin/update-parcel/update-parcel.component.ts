@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder,FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { parcel_interface } from 'src/app/interface/interface';
+import { parcel_interface, parcel_interface_response } from 'src/app/interface/interface';
 import { ParcelService } from 'src/app/services/parcel.service';
 
 
@@ -14,7 +14,7 @@ import { ParcelService } from 'src/app/services/parcel.service';
 export class UpdateParcelComponent implements OnInit {
   UpdatedData!:FormGroup
   isUpdating:boolean=false
-  allParcels$!: Observable<parcel_interface>
+  allParcels$!: Observable<parcel_interface_response>
   id:number = 0 ;
 
 

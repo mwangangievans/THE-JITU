@@ -35,14 +35,16 @@
       <br />
       <table>
         <tr>
-          <th>#</th>
+          <!-- <th>#</th> -->
           <th>username</th>
           <th>Phone</th>
           <th>email</th>
           <th>Action</th>
 
-        <tr *ngFor="let user of allUsers">
-          <td>{{ user.user_id }}</td>
+        <!-- <tr *ngFor="let user of allUsers|filter:filteredString"> -->
+          <tr *ngFor="let user of allUsers">
+
+          <!-- <td>{{ user.user_id }}</td> -->
           <td>{{ user.user_name }}</td>
           <td>{{ user.phone }}</td>
           <td>{{ user.user_email }}</td>

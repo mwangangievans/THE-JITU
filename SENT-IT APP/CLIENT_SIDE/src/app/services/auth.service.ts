@@ -13,6 +13,7 @@ export interface token{
 export class AuthService {
 
   constructor(private http: HttpClient) { }
+  token= localStorage.getItem("token") as string
 
   loginIn(){
     return !!localStorage.getItem('token') as boolean
@@ -28,15 +29,24 @@ export class AuthService {
   }
 
   getAllUsers():Observable<userRegister[]>{
-    return this.http.get<userRegister[]>('http://localhost:5000/user/all-users')
+    return this.http.get<userRegister[]>('http://localhost:5000/user/all-users',
+    {
+      headers: new HttpHeaders(
+        {
+        token: this.token
+       })
+    })
+
   }
   checkUserRole(){
     let token = localStorage.getItem('token') as string
-    return this.http.get<role>('http://localhost:5000/user/check-user',{
+    return this.http.get<role>('http://localhost:5000/user/check-user',
+    {
       headers: new HttpHeaders({
         "token": token
       })
-    }).pipe(map((res)=>{
+    })
+    .pipe(map((res)=>{
       localStorage.setItem('role', res.role)
       localStorage.setItem('Name', res.name)
     return res.role

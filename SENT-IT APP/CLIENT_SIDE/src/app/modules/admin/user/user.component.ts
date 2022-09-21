@@ -18,8 +18,11 @@ export class UserComponent implements OnInit {
 
     this.user.getAllUsers().subscribe(res=>{
       this.allUsers=res
+
   });
-  console.log(this.allUsers);
+  console.log("helllo user..."+this.allUsers);
+  console.log("helllo user...");
+
 }
 viewDetails(id:number=0){
 
